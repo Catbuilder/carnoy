@@ -34,7 +34,7 @@ final ThemeData myTheme = ThemeData(
   primaryColorDark: Color( 0xff213f78 ),
   canvasColor: Color( 0xfffafafa ),
   scaffoldBackgroundColor: Color( 0xfffafafa ),
-  bottomAppBarColor: Color( 0xffffffff ),
+  bottomAppBarColor: Color( 0xff21407a ),
   cardColor: Color( 0xffffffff ),
   dividerColor: Color( 0x1f000000 ),
   highlightColor: Color( 0x66bcbcbc ),

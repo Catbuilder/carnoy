@@ -797,30 +797,39 @@ Future<List<BasketDetail>> getProductItem(n, String u, Product p) async {
   List data = document
       .findAllElements('item')
 
-      /*
+  /*
   BasketDetail(this.artnum, this.artdes, this.nodnum, this.checked, this.artqty,
       this.artnumint, this.artimg, this.repcod);
   */
       .map<BasketDetail>((e) => BasketDetail(
-          e.findElements('artnum').first.text,
-          (e.findElements('artdes').first.text != ''
-              ? getText(unescape
-                  .convert(
-                    e.findElements('artdes').first.text,
-                  )
-                  .replaceAll('<br>', '\n')
-                  .replaceAll('<BR>', '\n'))
-              : e.findElements('artnumint').first.text),
-          n,
-          false,
-          1,
-          e.findElements('artnumint').first.text,
-          getToken(e.findElements('artinf').first.text, 'ap'),
-          repcod,
-          e.findElements('artpdf').length == 0
-              ? []
-              : e.findElements('artpdf').map<String>((el) => el.text).toList()))
+      e.findElements('artnum').first.text,
+      (e.findElements('artdes').first.text != ''
+          ? getText(unescape
+          .convert(
+        e.findElements('artdes').first.text,
+      )
+          .replaceAll('<br>', '\n')
+          .replaceAll('<BR>', '\n'))
+          : e.findElements('artnumint').first.text),
+      n,
+      false,
+      1,
+      e.findElements('artnumint').first.text,
+      getToken(e.findElements('artinf').first.text, 'ap'),
+      repcod,
+      e.findElements('artpdf').length == 0
+          ? []
+          : e.findElements('artpdf').map<String>((el) => el.text).toList()))
       .toList();
+  var myVal = '';
+  final items = document.findAllElements('item').toList();
+  for (var i = 0; i < data.length; i++) {
+    myVal = items[i].findElements('artpri').single.text;
+    data[i].artpri = myVal == ''
+        ? '0.0'
+        : NumberFormat("##0.00#").format(double.parse(myVal));
+
+  }
   return data;
 }
 
