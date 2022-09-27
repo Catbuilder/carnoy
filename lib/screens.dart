@@ -1104,7 +1104,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
   final ItemPositionsListener itemPositionsListener =
   ItemPositionsListener.create();
   var _position;
-  var _pdfIndex = 0;
+ // var _pdfIndex = 0;
 
   void _showPDF(context, replace) async {
     List<String> myUrl = [''];
@@ -1197,7 +1197,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
       _position = values.indexWhere((e) => e.artnumint == syncnum);
       if (_position == -1) _position = 0;
     }
-    _pdfIndex = values.indexWhere((element) => element.artpdf.length > 0);
+    //_pdfIndex = values.indexWhere((element) => element.artpdf.length > 0);
     //print('Position: $_position');
 
     return Scaffold(
