@@ -1213,7 +1213,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                         overflow: TextOverflow.ellipsis,
                         softWrap: true,
                       )),
-                  _pdfIndex == -1
+                 /* _pdfIndex == -1
                       ? Container()
                       : IconButton(
                     icon: Image.asset(
@@ -1226,7 +1226,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                       _showItemPDF(context, values[_pdfIndex].artpdf,
                           values[_pdfIndex].artdes);
                     },
-                  ),
+                  ),*/
                   basurl == '' || approPDFSuffix == 'x' || product.sheet == ''
                       ? Container()
                       : IconButton(
@@ -1358,7 +1358,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                                               ? Colors.amberAccent
                                               : myTheme.canvasColor,
                                         )),
-                                  /*
+
                                 values[index].artpdf.length > 0
                                     ? IconButton(
                                         icon: Icon(SimpleLineIcons.book_open,
@@ -1371,7 +1371,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                                         },
                                       )
                                     : Container(),
-                                */
+
                                 ]),
                               ])),
                       SizedBox(

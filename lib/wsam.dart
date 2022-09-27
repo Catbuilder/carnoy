@@ -279,13 +279,11 @@ Future<String> getOrderInfo(context) async {
   var myLang = approLanguage;
   switch (Localizations.localeOf(context).toString()) {
     case 'fr':
-    case 'de':
     case 'nl':
     case 'en':
       myLang = Localizations.localeOf(context).toString();
       break;
   }
-
   cXML += '<dbsync>';
   cXML += '<header>';
   cXML += '<sender><credential><client>appro724</client><identity>' +
