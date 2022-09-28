@@ -1989,7 +1989,7 @@ class _ScanScreenState extends State<ScanScreen> {
         MaterialPageRoute(builder: (BuildContext context2) => ScanScanScreen());
     final _scanBarcode = await Navigator.of(context2).push(route);
     if (_scanBarcode.toString() != 'null')
-      checkItem(context2, _scanBarcode.toString());
+      checkItem(context2, _scanBarcode.toString(),true);
   }
 
   void _addItem() async {
@@ -1997,7 +1997,7 @@ class _ScanScreenState extends State<ScanScreen> {
       builder: (BuildContext context) => ScanAddScreen(),
     );
     final result = await Navigator.of(context).push(route);
-    if (result != null) checkItem(context, result);
+    if (result != null) checkItem(context, result,true);
   }
 
   void _toCart() {
@@ -2222,6 +2222,8 @@ class _ScanScreenState extends State<ScanScreen> {
                                         showStockIcon: approShowStockIcon,
                                         artnumint:
                                             basketScanned[index].artnumint,
+                                        showStock: true,
+                                        basketRow: basketScanned[index],
                                         addIcon: Icon(Icons.add_circle_outline),
                                         subtractIcon:
                                             Icon(Icons.remove_circle_outline),

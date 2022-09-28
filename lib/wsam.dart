@@ -1140,7 +1140,7 @@ Future<BasketDetail> checkBasketItem(context, artnumint, artqty) async {
   return b;
 }
 
-void checkItem(context, a) async {
+void checkItem(context, a, bool pvc) async {
   BasketDetail d;
   var data = '<item><id>' + a + '</id></item>';
   var myUrl = 'https://' + approShop + '.catbuilder.info/catalogs/wsam.asp';
@@ -1170,7 +1170,7 @@ void checkItem(context, a) async {
           child: Center(child: CircularProgressIndicator())));
   http.Response response = await http.post(Uri.parse(myUrl), body: cXML);
 
-  //print('check: ' + response.body);
+  print('check: ' + response.body);
   var document = XmlDocument.parse(response.body);
   final items = document.findAllElements('item').toList();
   if (items.length == 0) {
@@ -1200,11 +1200,76 @@ void checkItem(context, a) async {
           []);
       d.status = 1;
       d.artinf = items[i].findElements('artinf').first.text;
-      d.artoul = getToken(d.artinf , 'oul');
+      if (pvc) {
+        data = '<item><id>' + a + '</id><qty>1</qty></item>';
+        myUrl = 'https://' + approShop + '.catbuilder.info/catalogs/wsam.asp';
+        cXML = '<?xml version="1.0" encoding="UTF-8" ?>';
+        cXML += '<dbsync>';
+        cXML += '<header>';
+        cXML += '<sender><credential><client>appro724</client><identity>' +
+            approUser +
+            '</identity><sharedsecret>' +
+            approCredential +
+            '</sharedsecret></credential></sender>';
+        cXML += '</header>';
+        cXML += '<request>';
+        cXML += '<type>pvcheck</type>';
+        cXML += '<language>' + approLanguage + '</language>';
+        cXML += '<data>';
+        cXML += data;
+        cXML += '</data>';
+        cXML += '</request>';
+        cXML += '</dbsync>';
+        http.Response response = await http.post(Uri.parse(myUrl), body: cXML);
+        document = XmlDocument.parse(response.body);
+        //print(response.body);
+        final items = document.findAllElements('item').toList();
+        var myVal = '';
+        for (var i = 0; i < items.length; i++) {
+          var id2 = items[i].findElements('id').single.text;
+          if (id2 == d.artnumint) {
+            d.status = int.parse(items[i].findElements('status').single.text);
+            if (d.status == 1) {
+              myVal = items[i].findElements('price').single.text;
+              d.artpri = myVal == ''
+                  ? '0.0'
+                  : NumberFormat("##0.00#").format(double.parse(myVal));
+
+              myVal = items[i].findElements('bestprice').single.text;
+              d.artbes = myVal == ''
+                  ? '0.0'
+                  : NumberFormat("##0.00#").format(double.parse(myVal));
+
+              d.artuni = items[i].findElements('unit').single.text;
+              d.artorduni = items[i].findElements('orderunit').single.text;
+              d.repcod = items[i].findElements('catalog').single.text;
+              d.artsto = items[i].findElements('stock').single.text;
+              d.artstofla = items[i].findElements('stockflag').single.text;
+              d.artinf = items[i].findElements('info').single.text;
+              //print(d.artinf);
+            } else {
+              d.status = -1;
+            }
+          }
+        }
+      }
       basketScanned.add(d);
       globals.scanCounter.value++;
     } else {
-      d = BasketDetail('', '', '', false, 1, a, '', '', []);
+      var _myString = '';
+      if (items[i]
+          .findElements('name-' + approLanguage)
+          .length > 0) {
+        _myString = items[i]
+            .findElements('name-' + approLanguage)
+            .first
+            .text
+            .replaceAll('<br>', '\n')
+            .replaceAll('<BR>', '\n');
+      }
+
+
+      d = BasketDetail('', _myString, '', false, 1, a, '', '', []);
       d.status = -1;
       basketScanned.add(d);
       globals.scanCounter.value++;
