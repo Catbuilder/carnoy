@@ -261,7 +261,7 @@ class _MainTabState extends State<MainTabState> with WidgetsBindingObserver {
           duration: Duration(milliseconds: 200),
         ),
         navBarStyle:
-        NavBarStyle.style6, // Choose the nav bar style with this property
+            NavBarStyle.style6, // Choose the nav bar style with this property
       ),
     );
   }
@@ -294,11 +294,11 @@ class CustomNavBarWidget extends StatelessWidget {
                   size: 26.0,
                   color: isSelected
                       ? (item.activeColorSecondary == null
-                      ? item.activeColorPrimary
-                      : item.activeColorSecondary)
+                          ? item.activeColorPrimary
+                          : item.activeColorSecondary)
                       : item.inactiveColorSecondary == null
-                      ? item.activeColorPrimary
-                      : item.inactiveColorSecondary),
+                          ? item.activeColorPrimary
+                          : item.inactiveColorSecondary),
               child: item.icon,
             ),
           ),
@@ -308,16 +308,16 @@ class CustomNavBarWidget extends StatelessWidget {
               type: MaterialType.transparency,
               child: FittedBox(
                   child: Text(
-                    item.title,
-                    style: TextStyle(
-                        color: isSelected
-                            ? (item.activeColorSecondary == null
+                item.title,
+                style: TextStyle(
+                    color: isSelected
+                        ? (item.activeColorSecondary == null
                             ? item.activeColorPrimary
                             : item.activeColorSecondary)
-                            : item.inactiveColorPrimary,
-                        fontWeight: FontWeight.w400,
-                        fontSize: item.textStyle.fontSize),
-                  )),
+                        : item.inactiveColorPrimary,
+                    fontWeight: FontWeight.w400,
+                    fontSize: item.textStyle.fontSize),
+              )),
             ),
           )
         ],
@@ -509,7 +509,7 @@ class _NewsScreen extends State<NewsScreen> {
                                 title: Column(children: <Widget>[
                                   Container(
                                     padding:
-                                    EdgeInsets.only(top: 2.0, bottom: 0.0),
+                                        EdgeInsets.only(top: 2.0, bottom: 0.0),
                                     child: Image.network(
                                       'https://' +
                                           approShop +
@@ -539,31 +539,31 @@ class _NewsScreen extends State<NewsScreen> {
                                     contentPadding: EdgeInsets.all(0.0),
                                     leading: infoNews[index].infsta == 1
                                         ? IconButton(
-                                      padding: EdgeInsets.only(
-                                          top: 0.0,
-                                          left: 0.0,
-                                          right: 4.0),
-                                      icon:
-                                      Icon(Icons.check_box_outlined),
-                                      onPressed: () {
-                                        infoNews[index].infsta = 0;
-                                        _refreshInfoNews();
-                                      },
-                                    )
+                                            padding: EdgeInsets.only(
+                                                top: 0.0,
+                                                left: 0.0,
+                                                right: 4.0),
+                                            icon:
+                                                Icon(Icons.check_box_outlined),
+                                            onPressed: () {
+                                              infoNews[index].infsta = 0;
+                                              _refreshInfoNews();
+                                            },
+                                          )
                                         : IconButton(
-                                      padding: EdgeInsets.only(
-                                          top: 0.0,
-                                          left: 0.0,
-                                          right: 4.0),
-                                      icon: Icon(Icons
-                                          .check_box_outline_blank_outlined),
-                                      onPressed: () {
-                                        infoNews[index].infsta = 1;
-                                        _refreshInfoNews();
-                                      },
-                                    ),
+                                            padding: EdgeInsets.only(
+                                                top: 0.0,
+                                                left: 0.0,
+                                                right: 4.0),
+                                            icon: Icon(Icons
+                                                .check_box_outline_blank_outlined),
+                                            onPressed: () {
+                                              infoNews[index].infsta = 1;
+                                              _refreshInfoNews();
+                                            },
+                                          ),
                                     title:
-                                    Text(getText(infoNews[index].inftit)),
+                                        Text(getText(infoNews[index].inftit)),
 
                                     onTap: () async {
                                       switch (infoNews[index].infact) {
@@ -600,18 +600,18 @@ class _NewsScreen extends State<NewsScreen> {
                                           var route = MaterialPageRoute(
                                             builder: (BuildContext context) =>
                                                 FavoriteDetailScreen(
-                                                  basdes: getText(
-                                                      infoNews[index].inftit),
-                                                  basval: getItemToken(
-                                                      getItemToken(
-                                                          infoNews[index].inflin,
-                                                          '/',
-                                                          2),
-                                                      '.',
-                                                      1),
-                                                  basurl: infoNews[index].inflin,
-                                                  synctoc: true,
-                                                ),
+                                              basdes: getText(
+                                                  infoNews[index].inftit),
+                                              basval: getItemToken(
+                                                  getItemToken(
+                                                      infoNews[index].inflin,
+                                                      '/',
+                                                      2),
+                                                  '.',
+                                                  1),
+                                              basurl: infoNews[index].inflin,
+                                              synctoc: true,
+                                            ),
                                           );
                                           Navigator.of(context).push(route);
                                           break;
@@ -620,7 +620,7 @@ class _NewsScreen extends State<NewsScreen> {
                                     trailing: infoNews[index].infact == ''
                                         ? Container()
                                         : Icon(Icons.arrow_forward_ios_rounded,
-                                        size: 16),
+                                            size: 16),
                                   )
                                 ]),
                                 onTap: () async {
@@ -648,18 +648,18 @@ class _NewsScreen extends State<NewsScreen> {
                                       var route = MaterialPageRoute(
                                         builder: (BuildContext context) =>
                                             FavoriteDetailScreen(
-                                              basdes:
+                                          basdes:
                                               getText(infoNews[index].inftit),
-                                              basval: getItemToken(
-                                                  getItemToken(
-                                                      infoNews[index].inflin,
-                                                      '/',
-                                                      2),
-                                                  '.',
-                                                  1),
-                                              basurl: infoNews[index].inflin,
-                                              synctoc: true,
-                                            ),
+                                          basval: getItemToken(
+                                              getItemToken(
+                                                  infoNews[index].inflin,
+                                                  '/',
+                                                  2),
+                                              '.',
+                                              1),
+                                          basurl: infoNews[index].inflin,
+                                          synctoc: true,
+                                        ),
                                       );
                                       Navigator.of(context).push(route);
                                       break;
@@ -679,23 +679,23 @@ class _NewsScreen extends State<NewsScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
           title: Row(children: <Widget>[
-            Expanded(
-                child: Text(getText(approNewsTitle),
-                    style: TextStyle(fontSize: 14.0))),
-            Container(width: 8.0),
-            IconButton(
-              padding: EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0),
-              icon: Icon(Icons.check_box_outlined),
-              onPressed: () {
-                setState(() {
-                  for (var e in infoNews) {
-                    e.infsta = 1;
-                  }
-                });
-                _refreshInfoNews();
-              },
-            ),
-          ])),
+        Expanded(
+            child: Text(getText(approNewsTitle),
+                style: TextStyle(fontSize: 14.0))),
+        Container(width: 8.0),
+        IconButton(
+          padding: EdgeInsets.only(top: 0.0, left: 16.0, right: 16.0),
+          icon: Icon(Icons.check_box_outlined),
+          onPressed: () {
+            setState(() {
+              for (var e in infoNews) {
+                e.infsta = 1;
+              }
+            });
+            _refreshInfoNews();
+          },
+        ),
+      ])),
       body: Container(
           padding: EdgeInsets.only(top: 0.0, bottom: 60), child: futureBuilder),
     );
@@ -774,24 +774,24 @@ class _PdfScreen extends State<PdfScreen> {
   }
 
   Widget pdfView() => PdfView(
-    controller: _pdfController,
-    renderer: (PdfPage page) => page.render(
-      width: page.width * 2,
-      height: page.height * 2,
-      format: PdfPageImageFormat.jpeg,
-      backgroundColor: '#FFFFFF',
-    ),
-    onDocumentLoaded: (document) {
-      setState(() {
-        _allPagesCount = document.pagesCount;
-      });
-    },
-    onPageChanged: (page) {
-      setState(() {
-        _actualPageNumber = page;
-      });
-    },
-  );
+        controller: _pdfController,
+        renderer: (PdfPage page) => page.render(
+          width: page.width * 2,
+          height: page.height * 2,
+          format: PdfPageImageFormat.jpeg,
+          backgroundColor: '#FFFFFF',
+        ),
+        onDocumentLoaded: (document) {
+          setState(() {
+            _allPagesCount = document.pagesCount;
+          });
+        },
+        onPageChanged: (page) {
+          setState(() {
+            _actualPageNumber = page;
+          });
+        },
+      );
   Widget build(BuildContext context) {
     if (pdfUrl.length > 1) {
       return Scaffold(
@@ -800,41 +800,41 @@ class _PdfScreen extends State<PdfScreen> {
             title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  Expanded(
-                      child: Text(
-                        noddes,
-                        style: TextStyle(fontSize: 14.0),
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      )),
-                ])),
+              Expanded(
+                  child: Text(
+                noddes,
+                style: TextStyle(fontSize: 14.0),
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
+              )),
+            ])),
         body: pdfReady
             ? Container(
-          padding: EdgeInsets.only(top: 0.0, bottom: 60),
-          child: GridView.builder(
-            itemCount: _pdfTabFile.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0),
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                child: new InkResponse(
-                  child: Image.file(_pdfTabFile[index]),
-                  onTap: () {
-                    List<String> myUrl = [];
-                    myUrl.add(pdfUrl[index]);
-                    var route = MaterialPageRoute(
-                        builder: (BuildContext context) => PdfScreen(
-                          myUrl,
-                          noddes,
-                        ));
-                    Navigator.of(context).push(route);
+                padding: EdgeInsets.only(top: 0.0, bottom: 60),
+                child: GridView.builder(
+                  itemCount: _pdfTabFile.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 4.0,
+                      mainAxisSpacing: 4.0),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      child: new InkResponse(
+                        child: Image.file(_pdfTabFile[index]),
+                        onTap: () {
+                          List<String> myUrl = [];
+                          myUrl.add(pdfUrl[index]);
+                          var route = MaterialPageRoute(
+                              builder: (BuildContext context) => PdfScreen(
+                                    myUrl,
+                                    noddes,
+                                  ));
+                          Navigator.of(context).push(route);
+                        },
+                      ),
+                    );
                   },
                 ),
-              );
-            },
-          ),
 /*                          onTap: () {
                             List<String> myUrl = [];
                             myUrl.add(pdfUrl[index]);
@@ -850,14 +850,14 @@ class _PdfScreen extends State<PdfScreen> {
                     }),
 
  */
-        )
+              )
             : Center(child: CircularProgressIndicator()),
       );
     } else {
       return Scaffold(
         backgroundColor: Colors.white,
         floatingActionButtonLocation:
-        FloatingActionButtonLocation.miniCenterTop,
+            FloatingActionButtonLocation.miniCenterTop,
         floatingActionButton: Container(
           height: 40.0,
           width: 40.0,
@@ -882,36 +882,36 @@ class _PdfScreen extends State<PdfScreen> {
             title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  Expanded(
-                      child: Text(
-                        noddes,
-                        style: TextStyle(fontSize: 14.0),
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      )),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.centerRight,
-                    icon: Icon(
-                      Icons.share_outlined,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      _sharePDF();
-                    },
-                  ),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.centerRight,
-                    icon: Icon(
-                      Icons.print,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      _printPDF();
-                    },
-                  ),
-                ])),
+              Expanded(
+                  child: Text(
+                noddes,
+                style: TextStyle(fontSize: 14.0),
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
+              )),
+              IconButton(
+                padding: EdgeInsets.zero,
+                alignment: Alignment.centerRight,
+                icon: Icon(
+                  Icons.share_outlined,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  _sharePDF();
+                },
+              ),
+              IconButton(
+                padding: EdgeInsets.zero,
+                alignment: Alignment.centerRight,
+                icon: Icon(
+                  Icons.print,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  _printPDF();
+                },
+              ),
+            ])),
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
@@ -926,9 +926,9 @@ class _PdfScreen extends State<PdfScreen> {
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -974,12 +974,12 @@ class _FavoriteScreen extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     mapMenuSegment.putIfAbsent(
       0,
-          () => Text(AppLocalizations.of(context).favorite,
+      () => Text(AppLocalizations.of(context).favorite,
           style: TextStyle(fontSize: 14.0)),
     );
     mapMenuSegment.putIfAbsent(
       1,
-          () => Text(AppLocalizations.of(context).history,
+      () => Text(AppLocalizations.of(context).history,
           style: TextStyle(fontSize: 14.0)),
     );
     return Scaffold(
@@ -989,19 +989,19 @@ class _FavoriteScreen extends State<FavoriteScreen> {
 //            crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
 //              Text(FavoriteCode == 'archive' ? 'History' : 'Favorite'),
-                  segmentedControl(),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.centerRight,
-                    icon: Icon(
-                      Icons.refresh,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      _refresh();
-                    },
-                  ),
-                ])),
+              segmentedControl(),
+              IconButton(
+                padding: EdgeInsets.zero,
+                alignment: Alignment.centerRight,
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  _refresh();
+                },
+              ),
+            ])),
         drawer: GeneralDrawer(),
         body: Container(
           padding: EdgeInsets.only(top: 0.0, bottom: 60),
@@ -1015,19 +1015,19 @@ class _FavoriteScreen extends State<FavoriteScreen> {
                   ListTile(
                     title: Text(segmentedControlValue == 1
                         ? basketArchive[index].basdes +
-                        '\n' +
-                        basketArchive[index].basdat
+                            '\n' +
+                            basketArchive[index].basdat
                         : basketFavorite[index].basdes),
                     onTap: () {
                       var route = MaterialPageRoute(
                         builder: (BuildContext context) => FavoriteDetailScreen(
                           basdes: (segmentedControlValue == 1
-                              ? basketArchive
-                              : basketFavorite)[index]
+                                  ? basketArchive
+                                  : basketFavorite)[index]
                               .basdes,
                           basval: (segmentedControlValue == 1
-                              ? basketArchive
-                              : basketFavorite)[index]
+                                  ? basketArchive
+                                  : basketFavorite)[index]
                               .basval,
                           basurl: '',
                           synctoc: true,
@@ -1052,14 +1052,14 @@ class _FavoriteScreen extends State<FavoriteScreen> {
 class FavoriteDetailScreen extends StatefulWidget {
   const FavoriteDetailScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false,
-        this.basdes = '',
-        this.basval = '',
-        this.basurl = '',
-        this.synctoc = false,
-        this.syncnum = ''})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false,
+      this.basdes = '',
+      this.basval = '',
+      this.basurl = '',
+      this.synctoc = false,
+      this.syncnum = ''})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -1102,9 +1102,9 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
 
   final ItemScrollController itemScrollController = ItemScrollController();
   final ItemPositionsListener itemPositionsListener =
-  ItemPositionsListener.create();
+      ItemPositionsListener.create();
   var _position;
- // var _pdfIndex = 0;
+  // var _pdfIndex = 0;
 
   void _showPDF(context, replace) async {
     List<String> myUrl = [''];
@@ -1206,14 +1206,14 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
             title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 //crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                      child: Text(
-                        basdes,
-                        style: TextStyle(fontSize: 14.0),
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      )),
-                 /* _pdfIndex == -1
+              Expanded(
+                  child: Text(
+                basdes,
+                style: TextStyle(fontSize: 14.0),
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
+              )),
+              /* _pdfIndex == -1
                       ? Container()
                       : IconButton(
                     icon: Image.asset(
@@ -1227,20 +1227,20 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                           values[_pdfIndex].artdes);
                     },
                   ),*/
-                  basurl == '' || approPDFSuffix == 'x' || product.sheet == ''
-                      ? Container()
-                      : IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.centerRight,
-                    icon: Icon(
-                      Icons.info_outline,
-                      color: Colors.white,
+              basurl == '' || approPDFSuffix == 'x' || product.sheet == ''
+                  ? Container()
+                  : IconButton(
+                      padding: EdgeInsets.zero,
+                      alignment: Alignment.centerRight,
+                      icon: Icon(
+                        Icons.info_outline,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        _showPDF(context, false);
+                      },
                     ),
-                    onPressed: () {
-                      _showPDF(context, false);
-                    },
-                  ),
-                ])),
+            ])),
         body: Container(
           padding: EdgeInsets.only(top: 5.0, bottom: 60),
           child: ScrollablePositionedList.builder(
@@ -1289,12 +1289,12 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                           image: values[index].nodnum == ''
                               ? AssetImage('images/pixel.gif')
                               : NetworkImage('https://' +
-                              approShop +
-                              '.catbuilder.info/catalogs/thumbs/' +
-                              (values[index].artimg == ''
-                                  ? values[index].nodnum
-                                  : values[index].artimg) +
-                              '.jpg'),
+                                  approShop +
+                                  '.catbuilder.info/catalogs/thumbs/' +
+                                  (values[index].artimg == ''
+                                      ? values[index].nodnum
+                                      : values[index].artimg) +
+                                  '.jpg'),
                           fit: BoxFit.contain,
                           height: 64.0 * approThumbSizeRatio,
                           width: 64.0 * approThumbSizeRatio,
@@ -1308,72 +1308,70 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(values[index].artdes),
-                                Wrap(direction: Axis.horizontal, children: <Widget>[
-                                  if (synctoc)
-                                    ElevatedButton(
-                                      onPressed: () async {
-                                        await getNodePath(values[index].nodnum,
-                                            values[index].repcod, context);
-                                        if (currentNodePath != '') {
-                                          mainTab.jumpToTab(1);
-                                          if (approTreeScreen.currentContext ==
-                                              null) {
-                                            await Future.delayed(
-                                                const Duration(milliseconds: 100),
-                                                    () {});
-                                          }
+                            Text(values[index].artdes),
+                            Wrap(direction: Axis.horizontal, children: <Widget>[
+                              if (synctoc)
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    await getNodePath(values[index].nodnum,
+                                        values[index].repcod, context);
+                                    if (currentNodePath != '') {
+                                      mainTab.jumpToTab(1);
+                                      if (approTreeScreen.currentContext ==
+                                          null) {
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 100),
+                                            () {});
+                                      }
 
-                                          final _context =
-                                              approTreeScreen.currentContext;
+                                      final _context =
+                                          approTreeScreen.currentContext;
 
-                                          final _name = '/tree';
-                                          if (_context != null) {
-                                            Navigator.of(_context).popUntil(
-                                                ModalRoute.withName("/tree"));
-                                          }
-                                          await syncNode(
-                                              treeRoot,
-                                              _name,
-                                              _context,
-                                              onScreenHideButtonPressed,
-                                              1,
-                                              values[index].artnumint);
-                                        }
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                          primary: myTheme.toggleButtonsTheme.color,
-                                          visualDensity: VisualDensity.compact,
-                                          textStyle: TextStyle(fontSize: 12.0)),
-                                      child: Text(
-                                        values[index].artnumint,
-                                      ),
-                                    )
-                                  else
-                                    Text(values[index].artnumint,
-                                        style: TextStyle(
-                                          color: globals.artnumintColor,
-                                          backgroundColor:
+                                      final _name = '/tree';
+                                      if (_context != null) {
+                                        Navigator.of(_context).popUntil(
+                                            ModalRoute.withName("/tree"));
+                                      }
+                                      await syncNode(
+                                          treeRoot,
+                                          _name,
+                                          _context,
+                                          onScreenHideButtonPressed,
+                                          1,
+                                          values[index].artnumint);
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: myTheme.toggleButtonsTheme.color,
+                                      visualDensity: VisualDensity.compact,
+                                      textStyle: TextStyle(fontSize: 12.0)),
+                                  child: Text(
+                                    values[index].artnumint,
+                                  ),
+                                )
+                              else
+                                Text(values[index].artnumint,
+                                    style: TextStyle(
+                                      color: globals.artnumintColor,
+                                      backgroundColor:
                                           syncnum == values[index].artnumint
                                               ? Colors.amberAccent
                                               : myTheme.canvasColor,
-                                        )),
-
-                                values[index].artpdf.length > 0
-                                    ? IconButton(
-                                        icon: Icon(SimpleLineIcons.book_open,
-                                            size: 20.0, color: Colors.grey),
-                                        onPressed: () {
-                                          _showItemPDF(
-                                              context,
-                                              values[index].artpdf,
-                                              values[index].artdes);
-                                        },
-                                      )
-                                    : Container(),
-
-                                ]),
-                              ])),
+                                    )),
+                              values[index].artpdf.length > 0
+                                  ? IconButton(
+                                      icon: Icon(SimpleLineIcons.book_open,
+                                          size: 20.0, color: Colors.grey),
+                                      onPressed: () {
+                                        _showItemPDF(
+                                            context,
+                                            values[index].artpdf,
+                                            values[index].artdes);
+                                      },
+                                    )
+                                  : Container(),
+                            ]),
+                          ])),
                       SizedBox(
                         width: 10,
                       ),
@@ -1382,7 +1380,8 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                     //onTa]),p: () {},
                     //         trailing: CheckedWidget(values[index]),
                   ),
-                  ListTile(
+                  /*
+                 ListTile(
                     title: Row(
                       children: <Widget>[
                         TouchInfo(
@@ -1400,17 +1399,18 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                       ],
                     ),
                   ),
+                  */
                   ValueListenableBuilder(
                       valueListenable: globals.favoriteRefresh,
                       builder:
                           (BuildContext context, bool value, Widget child) {
                         var _bindex = basketChecked.indexWhere(
-                                (e) => e.artnumint == values[index].artnumint);
+                            (e) => e.artnumint == values[index].artnumint);
 
                         return _bindex >
-                            -1 //&& basketChecked[_bindex].newchecked
+                                -1 //&& basketChecked[_bindex].newchecked
                             ? ListTile(
-                          /*  leading: ConstrainedBox(
+                                /*  leading: ConstrainedBox(
                               constraints: BoxConstraints(
                                 minWidth: 64,
                                 maxWidth: 64,
@@ -1423,38 +1423,40 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                             ),
 
                            */
-                          title: SizedBox(
-                            width: 100,
-                            child: TouchSpin2(
-                              scrollVisible: true,
-                              //onScreenHideButtonPressed: onScreenHideButtonPressed,
-                              value: basketChecked[_bindex].artqty,
-                              min: 1,
-                              max: 10000,
-                              step: 1,
-                              //                         displayFormat: ,
-                              textStyle: TextStyle(fontSize: 16),
-                              iconSize: 24.0,
-                              addIcon: Icon(Icons.add_circle_outline),
-                              subtractIcon:
-                              Icon(Icons.remove_circle_outline),
-                              iconActiveColor: Colors.red,
-                              iconDisabledColor: Colors.grey,
-                              iconPadding: EdgeInsets.all(2),
-                              showStockIcon: false,
-                              artnumint: basketChecked[_bindex].artnumint,
-                              onChanged: (val) {
-                                basketChecked[_bindex].artqty = val;
-                                globals.basketCounter.value =
-                                    globals.basketCounter.value + 1;
-                                globals.basketCounter.value =
-                                    globals.basketCounter.value - 1;
-                              },
-                              enabled: true,
-                              leftPadding: 64.0 * approThumbSizeRatio,
-                            ),
-                          ),
-                        )
+                                title: SizedBox(
+                                  width: 100,
+                                  child: TouchSpin2(
+                                    scrollVisible: true,
+                                    //onScreenHideButtonPressed: onScreenHideButtonPressed,
+                                    value: basketChecked[_bindex].artqty,
+                                    min: 1,
+                                    max: 10000,
+                                    step: 1,
+                                    //                         displayFormat: ,
+                                    textStyle: TextStyle(fontSize: 16),
+                                    iconSize: 24.0,
+                                    addIcon: Icon(Icons.add_circle_outline),
+                                    subtractIcon:
+                                        Icon(Icons.remove_circle_outline),
+                                    iconActiveColor: Colors.red,
+                                    iconDisabledColor: Colors.grey,
+                                    iconPadding: EdgeInsets.all(2),
+                                    showStockIcon: true,
+                                    showStock: true,
+                                    artnumint: basketChecked[_bindex].artnumint,
+                                    basketRow: basketChecked[_bindex],
+                                    onChanged: (val) {
+                                      basketChecked[_bindex].artqty = val;
+                                      globals.basketCounter.value =
+                                          globals.basketCounter.value + 1;
+                                      globals.basketCounter.value =
+                                          globals.basketCounter.value - 1;
+                                    },
+                                    enabled: true,
+                                    leftPadding: 64.0 * approThumbSizeRatio,
+                                  ),
+                                ),
+                              )
                             : Container();
                       }),
                   Divider(height: 5.0),
@@ -1469,11 +1471,11 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
 class ItemDetailScreen extends StatelessWidget {
   const ItemDetailScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false,
-        this.itemSelected,
-        this.productSelected})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false,
+      this.itemSelected,
+      this.productSelected})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -1530,27 +1532,27 @@ class ItemDetailScreen extends StatelessWidget {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Expanded(
-                    child: Text(
-                      itemSelected.artdes,
-                      style: TextStyle(fontSize: 14.0),
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: true,
-                    )),
-                approPDFSuffix == 'x' || productSelected.sheet == ''
-                    ? Container()
-                    : IconButton(
-                  padding: EdgeInsets.zero,
-                  alignment: Alignment.centerRight,
-                  icon: Icon(
-                    Icons.info_outline,
-                    color: Colors.white,
+            Expanded(
+                child: Text(
+              itemSelected.artdes,
+              style: TextStyle(fontSize: 14.0),
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+            )),
+            approPDFSuffix == 'x' || productSelected.sheet == ''
+                ? Container()
+                : IconButton(
+                    padding: EdgeInsets.zero,
+                    alignment: Alignment.centerRight,
+                    icon: Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _showPDF(context);
+                    },
                   ),
-                  onPressed: () {
-                    _showPDF(context);
-                  },
-                ),
-              ])),
+          ])),
       body: futureBuilder,
     );
   }
@@ -1567,29 +1569,29 @@ class ItemDetailScreen extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Center(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: 128,
-                    minHeight: 128,
-                    maxWidth: MediaQuery.of(context).size.width,
-                    maxHeight: 3000,
-                  ),
-                  child: FadeInImage(
-                    imageErrorBuilder: (BuildContext context, Object exception,
-                        StackTrace stackTrace) {
-                      //print('Error Handler');
-                      return Container(
-                        width: 100.0,
-                        height: 100.0,
-                        child: Image.asset('images/nopicture.jpg'),
-                      );
-                    },
-                    placeholder: AssetImage('images/pixel.gif'),
-                    image: NetworkImage(value.nodimg[index], scale: 1),
-                    fit: BoxFit.contain,
-                    //height: 250.0,
-                    //width: MediaQuery.of(context).size.width,
-                  ),
-                ));
+              constraints: BoxConstraints(
+                minWidth: 128,
+                minHeight: 128,
+                maxWidth: MediaQuery.of(context).size.width,
+                maxHeight: 3000,
+              ),
+              child: FadeInImage(
+                imageErrorBuilder: (BuildContext context, Object exception,
+                    StackTrace stackTrace) {
+                  //print('Error Handler');
+                  return Container(
+                    width: 100.0,
+                    height: 100.0,
+                    child: Image.asset('images/nopicture.jpg'),
+                  );
+                },
+                placeholder: AssetImage('images/pixel.gif'),
+                image: NetworkImage(value.nodimg[index], scale: 1),
+                fit: BoxFit.contain,
+                //height: 250.0,
+                //width: MediaQuery.of(context).size.width,
+              ),
+            ));
           }),
     );
   }
@@ -1598,10 +1600,10 @@ class ItemDetailScreen extends StatelessWidget {
 class TreeScreen extends StatefulWidget {
   const TreeScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false,
-        this.treeChildren})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false,
+      this.treeChildren})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -1657,14 +1659,14 @@ class _TreeScreen extends State<TreeScreen> {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Text(AppLocalizations.of(context).catalog,
-                    style: TextStyle(fontSize: 14.0)),
-                Row(mainAxisAlignment: MainAxisAlignment.end,
+            Text(AppLocalizations.of(context).catalog,
+                style: TextStyle(fontSize: 14.0)),
+            Row(mainAxisAlignment: MainAxisAlignment.end,
 //            crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      !approShowNews
-                          ? Container()
-                          : ValueListenableBuilder(
+                children: <Widget>[
+                  !approShowNews
+                      ? Container()
+                      : ValueListenableBuilder(
                           valueListenable: globals.infoCounter,
                           builder:
                               (BuildContext context, int value, Widget child) {
@@ -1672,72 +1674,72 @@ class _TreeScreen extends State<TreeScreen> {
                             // is updated.
                             return globals.infoCounter.value == 0
                                 ? IconButton(
-                              padding: EdgeInsets.zero,
-                              alignment: Alignment.center,
-                              icon: Icon(
-                                FontAwesome.bullhorn,
-                                size: 20.0,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                var route = MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      NewsScreen(),
-                                );
-                                Navigator.of(context).push(route);
-                              },
-                            )
+                                    padding: EdgeInsets.zero,
+                                    alignment: Alignment.center,
+                                    icon: Icon(
+                                      FontAwesome.bullhorn,
+                                      size: 20.0,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: () {
+                                      var route = MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            NewsScreen(),
+                                      );
+                                      Navigator.of(context).push(route);
+                                    },
+                                  )
                                 : Badge(
-                              badgeColor: globals.badgeColor,
-                              position:
-                              BadgePosition.topEnd(top: -2, end: -3),
-                              animationDuration:
-                              Duration(milliseconds: 300),
-                              animationType: BadgeAnimationType.slide,
-                              badgeContent: ValueListenableBuilder(
-                                valueListenable: globals.infoCounter,
-                                builder: (BuildContext context, int value,
-                                    Widget child) {
-                                  // This builder will only get called when the _counter
-                                  // is updated.
-                                  return Text('$value',
-                                      style: TextStyle(
+                                    badgeColor: globals.badgeColor,
+                                    position:
+                                        BadgePosition.topEnd(top: -2, end: -3),
+                                    animationDuration:
+                                        Duration(milliseconds: 300),
+                                    animationType: BadgeAnimationType.slide,
+                                    badgeContent: ValueListenableBuilder(
+                                      valueListenable: globals.infoCounter,
+                                      builder: (BuildContext context, int value,
+                                          Widget child) {
+                                        // This builder will only get called when the _counter
+                                        // is updated.
+                                        return Text('$value',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ));
+                                      },
+                                    ),
+                                    child: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      alignment: Alignment.center,
+                                      icon: Icon(
+                                        FontAwesome.bullhorn,
+                                        size: 20.0,
                                         color: Colors.white,
-                                      ));
-                                },
-                              ),
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                alignment: Alignment.center,
-                                icon: Icon(
-                                  FontAwesome.bullhorn,
-                                  size: 20.0,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {
-                                  var route = MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        NewsScreen(),
+                                      ),
+                                      onPressed: () {
+                                        var route = MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              NewsScreen(),
+                                        );
+                                        Navigator.of(context).push(route);
+                                        //globals.infoCounter.value = 0;
+                                      },
+                                    ),
                                   );
-                                  Navigator.of(context).push(route);
-                                  //globals.infoCounter.value = 0;
-                                },
-                              ),
-                            );
                           }),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        alignment: Alignment.centerRight,
-                        icon: Icon(
-                          Icons.refresh,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          _refresh();
-                        },
-                      ),
-                    ]),
-              ])),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    alignment: Alignment.centerRight,
+                    icon: Icon(
+                      Icons.refresh,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _refresh();
+                    },
+                  ),
+                ]),
+          ])),
       body: Container(
         padding: EdgeInsets.only(top: 0.0, bottom: 60),
         child: ListView.builder(
@@ -1761,11 +1763,11 @@ class _TreeScreen extends State<TreeScreen> {
                         image: treeRoot[index].nodimg == ''
                             ? AssetImage('images/pixel.gif')
                             : NetworkImage(
-                            'https://' +
-                                approShop +
-                                '.catbuilder.info/catalogs/' +
-                                treeRoot[index].nodimg,
-                            scale: 1.0),
+                                'https://' +
+                                    approShop +
+                                    '.catbuilder.info/catalogs/' +
+                                    treeRoot[index].nodimg,
+                                scale: 1.0),
                         fit: BoxFit.contain,
                         height: 64.0 * approThumbSizeRatio,
                         width: 64.0 * approThumbSizeRatio,
@@ -1904,11 +1906,11 @@ class _ChapterScreen extends State<ChapterScreen> {
                         image: nodeChildren[index].nodimg == ''
                             ? AssetImage('images/pixel.gif')
                             : NetworkImage(
-                            'https://' +
-                                approShop +
-                                '.catbuilder.info/catalogs/' +
-                                nodeChildren[index].nodimg,
-                            scale: 1.0),
+                                'https://' +
+                                    approShop +
+                                    '.catbuilder.info/catalogs/' +
+                                    nodeChildren[index].nodimg,
+                                scale: 1.0),
                         fit: BoxFit.contain,
                         height: 64.0 * approThumbSizeRatio,
                         width: 64.0 * approThumbSizeRatio,
@@ -1928,12 +1930,12 @@ class _ChapterScreen extends State<ChapterScreen> {
                         route = MaterialPageRoute(
                           builder: (BuildContext context) =>
                               FavoriteDetailScreen(
-                                basdes: nodeChildren[index].noddes,
-                                basval: nodeChildren[index].nodnum,
-                                basurl: nodeChildren[index].nodurl,
-                                onScreenHideButtonPressed:
+                            basdes: nodeChildren[index].noddes,
+                            basval: nodeChildren[index].nodnum,
+                            basurl: nodeChildren[index].nodurl,
+                            onScreenHideButtonPressed:
                                 onScreenHideButtonPressed,
-                              ),
+                          ),
                         );
                       } else {
                         var e = await getTreeLevel(nodeChildren[index].xmlnod);
@@ -1964,9 +1966,9 @@ class ScanScreen extends StatefulWidget {
   final bool hideStatus;
   const ScanScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false})
       : super(key: key);
   @override
   _ScanScreenState createState() => _ScanScreenState(
@@ -1984,7 +1986,7 @@ class _ScanScreenState extends State<ScanScreen> {
 
   void _goScan(context, context2) async {
     var route =
-    MaterialPageRoute(builder: (BuildContext context2) => ScanScanScreen());
+        MaterialPageRoute(builder: (BuildContext context2) => ScanScanScreen());
     final _scanBarcode = await Navigator.of(context2).push(route);
     if (_scanBarcode.toString() != 'null')
       checkItem(context2, _scanBarcode.toString());
@@ -2102,16 +2104,16 @@ class _ScanScreenState extends State<ScanScreen> {
                                       width: 64.0,
                                       height: 64.0,
                                       child:
-                                      Image.asset('images/nopicture.jpg'),
+                                          Image.asset('images/nopicture.jpg'),
                                     );
                                   },
                                   placeholder: AssetImage('images/pixel.gif'),
                                   image: NetworkImage(basketScanned[index]
-                                      .artimg ==
-                                      ''
+                                              .artimg ==
+                                          ''
                                       ? 'https://' +
-                                      approShop +
-                                      '.catbuilder.info/showcase/img/nopicture.jpg'
+                                          approShop +
+                                          '.catbuilder.info/showcase/img/nopicture.jpg'
                                       : basketScanned[index].artimg),
                                   fit: BoxFit.contain,
                                   height: 64.0 * approThumbSizeRatio,
@@ -2127,16 +2129,16 @@ class _ScanScreenState extends State<ScanScreen> {
                                         return basketScanned[index].status == 0
                                             ? Text('')
                                             : basketScanned[index].status == 1
-                                            ? Icon(
-                                          Icons.check_box,
-                                          color: Colors.green,
-                                          size: 22.0,
-                                        )
-                                            : Icon(
-                                          Icons.cancel,
-                                          color: Colors.red,
-                                          size: 22.0,
-                                        );
+                                                ? Icon(
+                                                    Icons.check_box,
+                                                    color: Colors.green,
+                                                    size: 22.0,
+                                                  )
+                                                : Icon(
+                                                    Icons.cancel,
+                                                    color: Colors.red,
+                                                    size: 22.0,
+                                                  );
                                       }),
                                 ),
                               ]),
@@ -2144,7 +2146,7 @@ class _ScanScreenState extends State<ScanScreen> {
                               Expanded(
                                 child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(basketScanned[index].artdes),
                                       ElevatedButton(
@@ -2156,12 +2158,12 @@ class _ScanScreenState extends State<ScanScreen> {
                                           if (currentNodePath != '') {
                                             mainTab.jumpToTab(1);
                                             if (approTreeScreen
-                                                .currentContext ==
+                                                    .currentContext ==
                                                 null) {
                                               await Future.delayed(
                                                   const Duration(
                                                       milliseconds: 100),
-                                                      () {});
+                                                  () {});
                                             }
                                             final _context =
                                                 approTreeScreen.currentContext;
@@ -2183,10 +2185,10 @@ class _ScanScreenState extends State<ScanScreen> {
                                             primary: myTheme
                                                 .toggleButtonsTheme.color,
                                             visualDensity:
-                                            VisualDensity.compact,
+                                                VisualDensity.compact,
                                             textStyle: TextStyle(
                                                 fontSize:
-                                                approDataTextSize * 1.0)),
+                                                    approDataTextSize * 1.0)),
                                         child: Text(
                                           basketScanned[index].artnumint,
                                         ),
@@ -2203,36 +2205,36 @@ class _ScanScreenState extends State<ScanScreen> {
                           ListTile(
                             title: basketScanned[index].status == -1
                                 ? SizedBox(
-                                height: 42.0,
-                                child: Text(
-                                    AppLocalizations.of(context).notfound))
+                                    height: 42.0,
+                                    child: Text(
+                                        AppLocalizations.of(context).notfound))
                                 : Row(children: <Widget>[
-                              SizedBox(
-                                width: 250,
-                                child: TouchSpin2(
-                                  value: basketScanned[index].artqty,
-                                  min: 1,
-                                  max: 10000,
-                                  step: 1,
-                                  //                         displayFormat: ,
-                                  textStyle: TextStyle(fontSize: 16),
-                                  iconSize: 24.0,
-                                  showStockIcon: approShowStockIcon,
-                                  artnumint:
-                                  basketScanned[index].artnumint,
-                                  addIcon: Icon(Icons.add_circle_outline),
-                                  subtractIcon:
-                                  Icon(Icons.remove_circle_outline),
-                                  iconActiveColor: Colors.red,
-                                  iconDisabledColor: Colors.grey,
-                                  iconPadding: EdgeInsets.all(2),
-                                  onChanged: (val) {
-                                    basketScanned[index].artqty = val;
-                                  },
-                                  enabled: true,
-                                ),
-                              ),
-                            ]),
+                                    SizedBox(
+                                      width: 250,
+                                      child: TouchSpin2(
+                                        value: basketScanned[index].artqty,
+                                        min: 1,
+                                        max: 10000,
+                                        step: 1,
+                                        //                         displayFormat: ,
+                                        textStyle: TextStyle(fontSize: 16),
+                                        iconSize: 24.0,
+                                        showStockIcon: approShowStockIcon,
+                                        artnumint:
+                                            basketScanned[index].artnumint,
+                                        addIcon: Icon(Icons.add_circle_outline),
+                                        subtractIcon:
+                                            Icon(Icons.remove_circle_outline),
+                                        iconActiveColor: Colors.red,
+                                        iconDisabledColor: Colors.grey,
+                                        iconPadding: EdgeInsets.all(2),
+                                        onChanged: (val) {
+                                          basketScanned[index].artqty = val;
+                                        },
+                                        enabled: true,
+                                      ),
+                                    ),
+                                  ]),
                           ),
                           Divider(
                             height: 1.0,
@@ -2354,9 +2356,9 @@ class _ScanAddScreen extends State<ScanAddScreen> {
 class BasketScreen extends StatefulWidget {
   const BasketScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -2438,10 +2440,10 @@ class _BasketScreen extends State<BasketScreen> {
                   if (basketChecked.indexWhere((b) => b.status == 0) > -1) {
                     final snackBar = SnackBar(
                       padding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       behavior: SnackBarBehavior.fixed,
                       content:
-                      Text(AppLocalizations.of(context).mustcheckbasket),
+                          Text(AppLocalizations.of(context).mustcheckbasket),
                       action: SnackBarAction(
                         label: AppLocalizations.of(context).hide,
                         onPressed: () {},
@@ -2500,95 +2502,95 @@ class _BasketScreen extends State<BasketScreen> {
                         child: Column(children: <Widget>[
                           ListTile(
                               title: Row(
-                                children: <Widget>[
-                                  GestureDetector(
-                                      onTap: () async {
-                                        var _product = Product('');
-                                        await getProductItem(
-                                            '',
-                                            basketChecked[index].repcod +
-                                                '/' +
-                                                basketChecked[index].nodnum +
-                                                '.asp',
-                                            _product);
+                            children: <Widget>[
+                              GestureDetector(
+                                  onTap: () async {
+                                    var _product = Product('');
+                                    await getProductItem(
+                                        '',
+                                        basketChecked[index].repcod +
+                                            '/' +
+                                            basketChecked[index].nodnum +
+                                            '.asp',
+                                        _product);
 
-                                        var route = MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              ItemDetailScreen(
-                                                itemSelected: basketChecked[index],
-                                                productSelected: _product,
-                                              ),
-                                        );
-                                        Navigator.of(context).push(route);
-                                      },
-                                      child: Stack(
-                                        //overflow: Overflow.visible,
-                                          clipBehavior: Clip.hardEdge,
-                                          children: <Widget>[
-                                            FadeInImage(
-                                              imageErrorBuilder:
-                                                  (BuildContext context,
+                                    var route = MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          ItemDetailScreen(
+                                        itemSelected: basketChecked[index],
+                                        productSelected: _product,
+                                      ),
+                                    );
+                                    Navigator.of(context).push(route);
+                                  },
+                                  child: Stack(
+                                      //overflow: Overflow.visible,
+                                      clipBehavior: Clip.hardEdge,
+                                      children: <Widget>[
+                                        FadeInImage(
+                                          imageErrorBuilder:
+                                              (BuildContext context,
                                                   Object exception,
                                                   StackTrace stackTrace) {
-                                                //print('Error Handler');
-                                                return Container(
-                                                  width: 64.0 * approThumbSizeRatio,
-                                                  height:
+                                            //print('Error Handler');
+                                            return Container(
+                                              width: 64.0 * approThumbSizeRatio,
+                                              height:
                                                   64.0 * approThumbSizeRatio,
-                                                  child: Image.asset(
-                                                      'images/nopicture.jpg'),
-                                                );
-                                              },
-                                              placeholder:
+                                              child: Image.asset(
+                                                  'images/nopicture.jpg'),
+                                            );
+                                          },
+                                          placeholder:
                                               AssetImage('images/pixel.gif'),
-                                              image: NetworkImage(basketChecked[
-                                              index]
-                                                  .artimg
-                                                  .indexOf('http') >
+                                          image: NetworkImage(basketChecked[
+                                                          index]
+                                                      .artimg
+                                                      .indexOf('http') >
                                                   -1
-                                                  ? basketChecked[index].artimg
-                                                  : 'https://' +
+                                              ? basketChecked[index].artimg
+                                              : 'https://' +
                                                   approShop +
                                                   '.catbuilder.info/catalogs/thumbs/' +
                                                   (basketChecked[index]
-                                                      .artimg ==
-                                                      ''
+                                                              .artimg ==
+                                                          ''
                                                       ? basketChecked[index]
-                                                      .nodnum
+                                                          .nodnum
                                                       : basketChecked[index]
-                                                      .artimg) +
+                                                          .artimg) +
                                                   '.jpg'),
-                                              fit: BoxFit.contain,
-                                              height: 64.0 * approThumbSizeRatio,
-                                              width: 64.0 * approThumbSizeRatio,
-                                            ),
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: ValueListenableBuilder(
-                                                  valueListenable:
+                                          fit: BoxFit.contain,
+                                          height: 64.0 * approThumbSizeRatio,
+                                          width: 64.0 * approThumbSizeRatio,
+                                        ),
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          child: ValueListenableBuilder(
+                                              valueListenable:
                                                   globals.checkoutRefresh,
-                                                  builder: (BuildContext context,
-                                                      bool value, Widget child) {
-                                                    return (basketChecked[index]
-                                                        .status ==
+                                              builder: (BuildContext context,
+                                                  bool value, Widget child) {
+                                                return (basketChecked[index]
+                                                            .status ==
                                                         0
-                                                        ? Text('')
-                                                        : basketChecked[index]
-                                                        .status ==
-                                                        1
+                                                    ? Text('')
+                                                    : basketChecked[index]
+                                                                .status ==
+                                                            1
                                                         ? Icon(
-                                                      Icons.check_box,
-                                                      color: Colors.green,
-                                                      size: 20.0,
-                                                    )
+                                                            Icons.check_box,
+                                                            color: Colors.green,
+                                                            size: 20.0,
+                                                          )
                                                         : Icon(
-                                                      Icons.cancel,
-                                                      color: Colors.red,
-                                                      size: 20.0,
-                                                    ));
-                                                  }),
-                                            ),
+                                                            Icons.cancel,
+                                                            color: Colors.red,
+                                                            size: 20.0,
+                                                          ));
+                                              }),
+                                        ),
 /*                                        PositionedDirectional(
                                             start: 50,
                                             bottom: -5,
@@ -2599,67 +2601,67 @@ class _BasketScreen extends State<BasketScreen> {
                                             )),
 
  */
-                                          ])),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Expanded(
-                                      child: Column(
-                                          crossAxisAlignment:
+                                      ])),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                  child: Column(
+                                      crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Wrap(
-                                                spacing: 2,
-                                                runSpacing: 2,
-                                                children: <Widget>[
-                                                  Text(basketChecked[index].artdes),
-                                                  Text('')
-                                                ]),
-                                            ElevatedButton(
-                                              onPressed: () async {
-                                                await getNodePath(
-                                                    basketChecked[index].nodnum,
-                                                    basketChecked[index].repcod,
-                                                    context);
-                                                if (currentNodePath != '') {
-                                                  mainTab.jumpToTab(1);
-                                                  if (approTreeScreen.currentContext ==
-                                                      null) {
-                                                    await Future.delayed(
-                                                        const Duration(
-                                                            milliseconds: 100),
-                                                            () {});
-                                                  }
-                                                  final _context =
-                                                      approTreeScreen.currentContext;
-                                                  final _name = '/tree';
-                                                  if (_context != null) {
-                                                    Navigator.of(_context).popUntil(
-                                                        ModalRoute.withName("/tree"));
-                                                  }
-                                                  await syncNode(
-                                                      treeRoot,
-                                                      _name,
-                                                      _context,
-                                                      onScreenHideButtonPressed,
-                                                      1,
-                                                      basketChecked[index].artnumint);
-                                                }
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                  primary:
-                                                  myTheme.toggleButtonsTheme.color,
-                                                  visualDensity: VisualDensity.compact,
-                                                  textStyle: TextStyle(
-                                                      fontSize:
-                                                      approDataTextSize * 1.0)),
-                                              child: Text(
-                                                basketChecked[index].artnumint,
-                                              ),
-                                            )
-                                          ])),
-                                ],
-                              )),
+                                      children: <Widget>[
+                                    Wrap(
+                                        spacing: 2,
+                                        runSpacing: 2,
+                                        children: <Widget>[
+                                          Text(basketChecked[index].artdes),
+                                          Text('')
+                                        ]),
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                        await getNodePath(
+                                            basketChecked[index].nodnum,
+                                            basketChecked[index].repcod,
+                                            context);
+                                        if (currentNodePath != '') {
+                                          mainTab.jumpToTab(1);
+                                          if (approTreeScreen.currentContext ==
+                                              null) {
+                                            await Future.delayed(
+                                                const Duration(
+                                                    milliseconds: 100),
+                                                () {});
+                                          }
+                                          final _context =
+                                              approTreeScreen.currentContext;
+                                          final _name = '/tree';
+                                          if (_context != null) {
+                                            Navigator.of(_context).popUntil(
+                                                ModalRoute.withName("/tree"));
+                                          }
+                                          await syncNode(
+                                              treeRoot,
+                                              _name,
+                                              _context,
+                                              onScreenHideButtonPressed,
+                                              1,
+                                              basketChecked[index].artnumint);
+                                        }
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          primary:
+                                              myTheme.toggleButtonsTheme.color,
+                                          visualDensity: VisualDensity.compact,
+                                          textStyle: TextStyle(
+                                              fontSize:
+                                                  approDataTextSize * 1.0)),
+                                      child: Text(
+                                        basketChecked[index].artnumint,
+                                      ),
+                                    )
+                                  ])),
+                            ],
+                          )),
                           ListTile(
                             title: SizedBox(
                               width: 180,
@@ -2673,8 +2675,8 @@ class _BasketScreen extends State<BasketScreen> {
                                 textStyle: TextStyle(fontSize: 16),
                                 iconSize: 24.0,
                                 leftPadding: MediaQuery.of(context).size.width -
-                                    (64.0 * approThumbSizeRatio) <
-                                    220
+                                            (64.0 * approThumbSizeRatio) <
+                                        220
                                     ? MediaQuery.of(context).size.width - 220
                                     : 64.0 * approThumbSizeRatio,
                                 addIcon: Icon(Icons.add_circle_outline),
@@ -2695,56 +2697,56 @@ class _BasketScreen extends State<BasketScreen> {
                                   Widget child) {
                                 return basketChecked[index].status == 1
                                     ? ListTile(
-                                  leading: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                      minWidth: MediaQuery.of(context)
-                                          .size
-                                          .width -
-                                          (59.0 *
-                                              approThumbSizeRatio) <
-                                          220
-                                          ? MediaQuery.of(context)
-                                          .size
-                                          .width -
-                                          220
-                                          : 59.0 * approThumbSizeRatio,
-                                      maxWidth: MediaQuery.of(context)
-                                          .size
-                                          .width -
-                                          (59.0 *
-                                              approThumbSizeRatio) <
-                                          220
-                                          ? MediaQuery.of(context)
-                                          .size
-                                          .width -
-                                          220
-                                          : 59.0 * approThumbSizeRatio,
-                                    ),
-                                  ),
-                                  title: Wrap(runSpacing: 0, children: <
-                                      Widget>[
-                                    SizedBox(
-                                        height: 32,
-                                        child: Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            children: <Widget>[
-                                              basketChecked[index]
-                                                  .artoul
-                                                  .indexOf('|') ==
-                                                  -1
-                                                  ? Text(AppLocalizations
-                                                  .of(context)
-                                                  .orderunit +
-                                                  ': ' +
-                                                  basketChecked[index]
-                                                      .artorduni)
-                                                  : OrderUnitWidget(
-                                                  basketChecked[
-                                                  index],
-                                                  true,
-                                                  basketChecked[index]
-                                                      .artnumint),
+                                        leading: ConstrainedBox(
+                                          constraints: BoxConstraints(
+                                            minWidth: MediaQuery.of(context)
+                                                            .size
+                                                            .width -
+                                                        (59.0 *
+                                                            approThumbSizeRatio) <
+                                                    220
+                                                ? MediaQuery.of(context)
+                                                        .size
+                                                        .width -
+                                                    220
+                                                : 59.0 * approThumbSizeRatio,
+                                            maxWidth: MediaQuery.of(context)
+                                                            .size
+                                                            .width -
+                                                        (59.0 *
+                                                            approThumbSizeRatio) <
+                                                    220
+                                                ? MediaQuery.of(context)
+                                                        .size
+                                                        .width -
+                                                    220
+                                                : 59.0 * approThumbSizeRatio,
+                                          ),
+                                        ),
+                                        title: Wrap(runSpacing: 0, children: <
+                                            Widget>[
+                                          SizedBox(
+                                              height: 32,
+                                              child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    basketChecked[index]
+                                                                .artoul
+                                                                .indexOf('|') ==
+                                                            -1
+                                                        ? Text(AppLocalizations
+                                                                    .of(context)
+                                                                .orderunit +
+                                                            ': ' +
+                                                            basketChecked[index]
+                                                                .artorduni)
+                                                        : OrderUnitWidget(
+                                                            basketChecked[
+                                                                index],
+                                                            true,
+                                                            basketChecked[index]
+                                                                .artnumint),
 
 /*                                                    IconButton(
                                                       padding: EdgeInsets.zero,
@@ -2778,103 +2780,103 @@ class _BasketScreen extends State<BasketScreen> {
                                                     )
 
  */
-                                            ])),
-                                    basketChecked[index].artstofla == 'x'
-                                        ? Container()
-                                        : SizedBox(
-                                        height: 20,
-                                        child: Row(children: <Widget>[
-                                          basketChecked[index]
-                                              .artstofla ==
-                                              ''
-                                              ? basketChecked[index]
-                                              .artsto ==
-                                              ''
-                                              ? Text('')
-                                              : Text(AppLocalizations.of(
-                                              context)
-                                              .stock +
-                                              ': ' +
-                                              basketChecked[
-                                              index]
-                                                  .artsto)
-                                              : basketChecked[index]
-                                              .artstofla ==
-                                              'green'
-                                              ? Wrap(
-                                              children: <
-                                                  Widget>[
-                                                Text(AppLocalizations.of(context)
-                                                    .stock +
-                                                    ': '),
-                                                Icon(
-                                                    Icons
-                                                        .circle,
-                                                    color: Colors
-                                                        .green,
-                                                    size: (2 +
-                                                        approDataTextSize) *
-                                                        1.0)
-                                              ])
-                                              : basketChecked[index]
-                                              .artstofla ==
-                                              'yellow'
-                                              ? Wrap(
-                                              children: <
-                                                  Widget>[
-                                                Text(AppLocalizations.of(context).stock +
-                                                    ': '),
-                                                Icon(
-                                                    Icons
-                                                        .circle,
-                                                    color:
-                                                    Colors.orange,
-                                                    size: (2 + approDataTextSize) * 1.0)
-                                              ])
-                                              : Wrap(
-                                              children: <
-                                                  Widget>[
-                                                Text(AppLocalizations.of(context).stock +
-                                                    ': '),
-                                                Icon(
-                                                    Icons
-                                                        .circle,
-                                                    color:
-                                                    Colors.red,
-                                                    size: (2 + approDataTextSize) * 1.0)
-                                              ])
-                                        ])),
-                                    approShowPrice == false ||
-                                        basketChecked[index].artpri ==
-                                            'x'
-                                        ? Container()
-                                        : SizedBox(
-                                        height: 20,
-                                        child: Row(children: <Widget>[
-                                          Text(AppLocalizations.of(
-                                              context)
-                                              .price +
-                                              ': '),
-                                          Text(basketChecked[index]
-                                              .artpri ==
-                                              basketChecked[index]
-                                                  .artbes
-                                              ? basketChecked[index]
-                                              .artbes +
-                                              ' ' +
-                                              basketChecked[index]
-                                                  .artuni
-                                              : basketChecked[index]
-                                              .artpri +
-                                              ' / ' +
-                                              basketChecked[index]
-                                                  .artbes +
-                                              ' ' +
-                                              basketChecked[index]
-                                                  .artuni)
-                                        ]))
-                                  ]),
-                                )
+                                                  ])),
+                                          basketChecked[index].artstofla == 'x'
+                                              ? Container()
+                                              : SizedBox(
+                                                  height: 20,
+                                                  child: Row(children: <Widget>[
+                                                    basketChecked[index]
+                                                                .artstofla ==
+                                                            ''
+                                                        ? basketChecked[index]
+                                                                    .artsto ==
+                                                                ''
+                                                            ? Text('')
+                                                            : Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .stock +
+                                                                ': ' +
+                                                                basketChecked[
+                                                                        index]
+                                                                    .artsto)
+                                                        : basketChecked[index]
+                                                                    .artstofla ==
+                                                                'green'
+                                                            ? Wrap(
+                                                                children: <
+                                                                    Widget>[
+                                                                    Text(AppLocalizations.of(context)
+                                                                            .stock +
+                                                                        ': '),
+                                                                    Icon(
+                                                                        Icons
+                                                                            .circle,
+                                                                        color: Colors
+                                                                            .green,
+                                                                        size: (2 +
+                                                                                approDataTextSize) *
+                                                                            1.0)
+                                                                  ])
+                                                            : basketChecked[index]
+                                                                        .artstofla ==
+                                                                    'yellow'
+                                                                ? Wrap(
+                                                                    children: <
+                                                                        Widget>[
+                                                                        Text(AppLocalizations.of(context).stock +
+                                                                            ': '),
+                                                                        Icon(
+                                                                            Icons
+                                                                                .circle,
+                                                                            color:
+                                                                                Colors.orange,
+                                                                            size: (2 + approDataTextSize) * 1.0)
+                                                                      ])
+                                                                : Wrap(
+                                                                    children: <
+                                                                        Widget>[
+                                                                        Text(AppLocalizations.of(context).stock +
+                                                                            ': '),
+                                                                        Icon(
+                                                                            Icons
+                                                                                .circle,
+                                                                            color:
+                                                                                Colors.red,
+                                                                            size: (2 + approDataTextSize) * 1.0)
+                                                                      ])
+                                                  ])),
+                                          approShowPrice == false ||
+                                                  basketChecked[index].artpri ==
+                                                      'x'
+                                              ? Container()
+                                              : SizedBox(
+                                                  height: 20,
+                                                  child: Row(children: <Widget>[
+                                                    Text(AppLocalizations.of(
+                                                                context)
+                                                            .price +
+                                                        ': '),
+                                                    Text(basketChecked[index]
+                                                                .artpri ==
+                                                            basketChecked[index]
+                                                                .artbes
+                                                        ? basketChecked[index]
+                                                                .artbes +
+                                                            ' ' +
+                                                            basketChecked[index]
+                                                                .artuni
+                                                        : basketChecked[index]
+                                                                .artpri +
+                                                            ' / ' +
+                                                            basketChecked[index]
+                                                                .artbes +
+                                                            ' ' +
+                                                            basketChecked[index]
+                                                                .artuni)
+                                                  ]))
+                                        ]),
+                                      )
                                     : Container();
                               }),
                           Divider(
@@ -2894,10 +2896,10 @@ class _BasketScreen extends State<BasketScreen> {
 class BasketDetailScreen extends StatelessWidget {
   const BasketDetailScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false,
-        this.artidx = 0})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false,
+      this.artidx = 0})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -2957,27 +2959,27 @@ class BasketDetailScreen extends StatelessWidget {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Expanded(
-                    child: Text(
-                      basketChecked[artidx].artdes,
-                      style: TextStyle(fontSize: 14.0),
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: true,
-                    )),
-                approPDFSuffix == 'x'
-                    ? Container()
-                    : IconButton(
-                  padding: EdgeInsets.zero,
-                  alignment: Alignment.centerRight,
-                  icon: Icon(
-                    Icons.info_outline,
-                    color: Colors.white,
+            Expanded(
+                child: Text(
+              basketChecked[artidx].artdes,
+              style: TextStyle(fontSize: 14.0),
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+            )),
+            approPDFSuffix == 'x'
+                ? Container()
+                : IconButton(
+                    padding: EdgeInsets.zero,
+                    alignment: Alignment.centerRight,
+                    icon: Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _showPDF(context);
+                    },
                   ),
-                  onPressed: () {
-                    _showPDF(context);
-                  },
-                ),
-              ])),
+          ])),
       body: futureBuilder,
     );
   }
@@ -2994,29 +2996,29 @@ class BasketDetailScreen extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Center(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: 128,
-                    minHeight: 128,
-                    maxWidth: MediaQuery.of(context).size.width,
-                    maxHeight: 3000,
-                  ),
-                  child: FadeInImage(
-                    imageErrorBuilder: (BuildContext context, Object exception,
-                        StackTrace stackTrace) {
-                      //print('Error Handler');
-                      return Container(
-                        width: 100.0,
-                        height: 100.0,
-                        child: Image.asset('images/nopicture.jpg'),
-                      );
-                    },
-                    placeholder: AssetImage('images/pixel.gif'),
-                    image: NetworkImage(value.nodimg[index], scale: 1),
-                    fit: BoxFit.contain,
-                    //height: 250.0,
-                    //width: MediaQuery.of(context).size.width,
-                  ),
-                ));
+              constraints: BoxConstraints(
+                minWidth: 128,
+                minHeight: 128,
+                maxWidth: MediaQuery.of(context).size.width,
+                maxHeight: 3000,
+              ),
+              child: FadeInImage(
+                imageErrorBuilder: (BuildContext context, Object exception,
+                    StackTrace stackTrace) {
+                  //print('Error Handler');
+                  return Container(
+                    width: 100.0,
+                    height: 100.0,
+                    child: Image.asset('images/nopicture.jpg'),
+                  );
+                },
+                placeholder: AssetImage('images/pixel.gif'),
+                image: NetworkImage(value.nodimg[index], scale: 1),
+                fit: BoxFit.contain,
+                //height: 250.0,
+                //width: MediaQuery.of(context).size.width,
+              ),
+            ));
           }),
     );
   }
@@ -3051,9 +3053,9 @@ class BasketSendScreen extends StatelessWidget {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Text(AppLocalizations.of(context).send,
-                    style: TextStyle(fontSize: 14.0)),
-              ])),
+            Text(AppLocalizations.of(context).send,
+                style: TextStyle(fontSize: 14.0)),
+          ])),
       body: Container(
         padding: EdgeInsets.only(top: 5.0, bottom: 60),
         child: Center(
@@ -3162,13 +3164,13 @@ class _SendFavoriteScreen extends State<SendFavoriteScreen> {
             children: companyUser
                 .map(
                   (e) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 5, vertical: 8),
-                  child: Text(
-                    e.usemai,
-                    style: TextStyle(fontSize: 14),
-                  )),
-            )
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 8),
+                      child: Text(
+                        e.usemai,
+                        style: TextStyle(fontSize: 14),
+                      )),
+                )
                 .toList(),
           )),
     );
@@ -3198,7 +3200,7 @@ class _SendFavoriteScreen extends State<SendFavoriteScreen> {
               //SizedBox(height: 5.0),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: TextField(
                     controller: nameController,
                     decoration: InputDecoration(
@@ -3231,7 +3233,7 @@ class _SendFavoriteScreen extends State<SendFavoriteScreen> {
               //             SizedBox(height: 5.0),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: GestureDetector(
                   onTap: () => _selectedUser(context),
                   child: AbsorbPointer(
@@ -3248,20 +3250,20 @@ class _SendFavoriteScreen extends State<SendFavoriteScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
                 child: _notForMe
                     ? ListTile(
-                  title: Text(AppLocalizations.of(context).keepcopy),
-                  trailing: Switch(
-                      value: _copyForMe,
-                      onChanged: (bool value) {
-                        setState(() {
-                          _copyForMe = value;
-                        });
-                      }),
-                )
+                        title: Text(AppLocalizations.of(context).keepcopy),
+                        trailing: Switch(
+                            value: _copyForMe,
+                            onChanged: (bool value) {
+                              setState(() {
+                                _copyForMe = value;
+                              });
+                            }),
+                      )
                     : Container(),
               ),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                 child: TextField(
                     keyboardType: TextInputType.multiline,
                     controller: comController,
@@ -3301,8 +3303,8 @@ class SendOrderScreen extends StatelessWidget {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Text('Send order'),
-              ])),
+            Text('Send order'),
+          ])),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(top: 5.0, bottom: 60),
         child: Form(
@@ -3313,7 +3315,7 @@ class SendOrderScreen extends StatelessWidget {
               SizedBox(height: 25.0),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: CupertinoTextField(
                   prefix: Text('Name'),
                   controller: nameController,
@@ -3378,7 +3380,7 @@ class _CheckedWidgetState extends State<CheckedWidget> {
     //  .forEach((e) => { if(e.artnum == basrow.artnum) {_isChecked = true }});
   }
 
-  void _toggleFavorite() {
+  void _toggleFavorite() async {
     if (_isChecked) {
       for (var i = 0; i < basketChecked.length; i++) {
         if (basketChecked[i].artnumint == basrow.artnumint) {
@@ -3387,10 +3389,16 @@ class _CheckedWidgetState extends State<CheckedWidget> {
         }
       }
     } else {
+      var _basrow = await checkBasketItem(context, basrow.artnumint, 1);
+      basrow.artorduni = _basrow.artorduni;
+      basrow.artbes = _basrow.artbes;
+      basrow.artstofla = _basrow.artstofla;
+      basrow.artsto = _basrow.artsto;
       basketChecked.add(basrow);
       basketChecked[basketChecked.length - 1].newchecked = true;
     }
     _storage.writeBasket(basketChecked);
+
     globals.basketCounter.value = basketChecked.length;
     globals.favoriteRefresh.value = !globals.favoriteRefresh.value;
     setState(() {
@@ -3409,9 +3417,9 @@ class _CheckedWidgetState extends State<CheckedWidget> {
             alignment: Alignment.centerRight,
             icon: (_isChecked
                 ? Icon(
-              Icons.shopping_cart_rounded,
-              color: Colors.red,
-            )
+                    Icons.shopping_cart_rounded,
+                    color: Colors.red,
+                  )
                 : Icon(Icons.shopping_cart_outlined, color: Colors.grey[350])),
             onPressed: _toggleFavorite,
           ),
@@ -3424,9 +3432,9 @@ class _CheckedWidgetState extends State<CheckedWidget> {
 class SearchScreen extends StatefulWidget {
   const SearchScreen(
       {Key key,
-        this.menuScreenContext,
-        this.onScreenHideButtonPressed,
-        this.hideStatus = false})
+      this.menuScreenContext,
+      this.onScreenHideButtonPressed,
+      this.hideStatus = false})
       : super(key: key);
   final BuildContext menuScreenContext;
   final Function onScreenHideButtonPressed;
@@ -3558,13 +3566,13 @@ class _SearchScreen extends State<SearchScreen>
                         var route = MaterialPageRoute(
                           builder: (BuildContext context) =>
                               FavoriteDetailScreen(
-                                basdes: resultNode[index].noddes,
-                                basval: resultNode[index].nodnum,
-                                basurl: resultNode[index].nodurl,
-                                onScreenHideButtonPressed:
+                            basdes: resultNode[index].noddes,
+                            basval: resultNode[index].nodnum,
+                            basurl: resultNode[index].nodurl,
+                            onScreenHideButtonPressed:
                                 onScreenHideButtonPressed,
-                                synctoc: true,
-                              ),
+                            synctoc: true,
+                          ),
                         );
                         Navigator.of(context).push(route);
                       },
@@ -3637,39 +3645,39 @@ class _ParameterScreen extends State<ParameterScreen> {
     for (var i = 0; i < approLanguages.length; i++) {
       mapLanguageSegment.putIfAbsent(
         i,
-            () => Text(approLanguages[i].toUpperCase()),
+        () => Text(approLanguages[i].toUpperCase()),
       );
     }
     mapDataTextSegment.putIfAbsent(
         8,
-            () => Icon(
-          Icons.text_fields,
-          size: 8.0,
-        ));
+        () => Icon(
+              Icons.text_fields,
+              size: 8.0,
+            ));
     mapDataTextSegment.putIfAbsent(
         10,
-            () => Icon(
-          Icons.text_fields,
-          size: 10.0,
-        ));
+        () => Icon(
+              Icons.text_fields,
+              size: 10.0,
+            ));
     mapDataTextSegment.putIfAbsent(
         12,
-            () => Icon(
-          Icons.text_fields,
-          size: 12.0,
-        ));
+        () => Icon(
+              Icons.text_fields,
+              size: 12.0,
+            ));
     mapDataTextSegment.putIfAbsent(
         14,
-            () => Icon(
-          Icons.text_fields,
-          size: 14.0,
-        ));
+        () => Icon(
+              Icons.text_fields,
+              size: 14.0,
+            ));
     mapDataTextSegment.putIfAbsent(
         16,
-            () => Icon(
-          Icons.text_fields,
-          size: 16.0,
-        ));
+        () => Icon(
+              Icons.text_fields,
+              size: 16.0,
+            ));
     if (![8, 10, 12, 14, 16].contains(segmentedDataTextValue))
       segmentedDataTextValue = 14;
 
@@ -3709,8 +3717,8 @@ class _ParameterScreen extends State<ParameterScreen> {
               _themeProvider.setTheme(myTheme.copyWith(
                   textTheme: myTheme.textTheme.copyWith(
                       subtitle1: myTheme.textTheme.subtitle1.copyWith(
-                        fontSize: value * 1.0,
-                      ))));
+                fontSize: value * 1.0,
+              ))));
             });
           }),
     );
@@ -3730,8 +3738,8 @@ class _ParameterScreen extends State<ParameterScreen> {
               _themeProvider.setTheme(myTheme.copyWith(
                   textTheme: myTheme.textTheme.copyWith(
                       subtitle1: myTheme.textTheme.subtitle1.copyWith(
-                        fontSize: approDataTextSize * 1.0,
-                      ))));
+                fontSize: approDataTextSize * 1.0,
+              ))));
             });
           }),
     );
@@ -3750,20 +3758,20 @@ class _ParameterScreen extends State<ParameterScreen> {
           title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //            crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Text(AppLocalizations.of(context).parameter,
-                    style: TextStyle(fontSize: 14.0)),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  alignment: Alignment.centerRight,
-                  icon: Icon(
-                    Icons.save,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    _savePref();
-                  },
-                ),
-              ])),
+            Text(AppLocalizations.of(context).parameter,
+                style: TextStyle(fontSize: 14.0)),
+            IconButton(
+              padding: EdgeInsets.zero,
+              alignment: Alignment.centerRight,
+              icon: Icon(
+                Icons.save,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                _savePref();
+              },
+            ),
+          ])),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
@@ -3800,7 +3808,7 @@ class _ParameterScreen extends State<ParameterScreen> {
                     approShowPrice = b;
                   });
                   globals.checkoutRefresh.value =
-                  !globals.checkoutRefresh.value;
+                      !globals.checkoutRefresh.value;
                 })
           ]),
         ),
@@ -3837,89 +3845,89 @@ class GeneralDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Column(children: <Widget>[
-          Container(
-              height: MediaQuery.of(context).padding.top +
-                  AppBar().preferredSize.height,
-              child: DrawerHeader(
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        alignment: Alignment.centerLeft,
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ]),
-                margin: EdgeInsets.only(top: 0.0, bottom: 0.0),
-                decoration: BoxDecoration(
-                  color: myTheme.bottomAppBarColor,
-                ),
-              )),
-          Expanded(
-            child: ListView(
-              // Important: Remove any padding from the ListView.
-                padding: EdgeInsets.only(top: 0.0),
+      Container(
+          height: MediaQuery.of(context).padding.top +
+              AppBar().preferredSize.height,
+          child: DrawerHeader(
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  ListTile(
-                    contentPadding:
-                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                    leading: Icon(Icons.settings),
-                    title: Text(AppLocalizations.of(context).parameter),
-                    onTap: () {
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    alignment: Alignment.centerLeft,
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
                       Navigator.pop(context);
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) {
-                          return ParameterScreen();
-                        },
-                        settings: RouteSettings(
-                          name: '/',
-                        ),
-                      ));
-
-                      //pushNewScreen(context, screen: ParameterScreen());
-                    },
-                  ),
-                  ListTile(
-                    contentPadding:
-                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                    leading: Icon(Icons.open_in_browser_outlined),
-                    title: Text(AppLocalizations.of(context).openinbrowser),
-                    onTap: () {
-                      _launchURL();
-                    },
-                  ),
-                  ListTile(
-                    contentPadding:
-                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                    leading: Icon(Icons.logout),
-                    title: Text(AppLocalizations.of(context).logout),
-                    onTap: () async {
-                      //_restart();
-                      final sstorage = new FlutterSecureStorage();
-                      await sstorage.delete(key: approShop);
-                      //await sstorage.deleteAll();
-
-                      Navigator.of(context).popAndPushNamed('/');
-                      RestartWidget.restartApp(context);
-                      //Navigator.pushReplacement( context, MaterialPageRoute(builder: (BuildContext context) => MyApp()) );
                     },
                   ),
                 ]),
-          ),
-          Container(
-              padding: EdgeInsets.all(10),
-              height: 85,
-              child: Text(
-                'Version ' + approVersion,
-                style: TextStyle(fontSize: 10.0),
-              )),
-        ]));
+            margin: EdgeInsets.only(top: 0.0, bottom: 0.0),
+            decoration: BoxDecoration(
+              color: myTheme.bottomAppBarColor,
+            ),
+          )),
+      Expanded(
+        child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.only(top: 0.0),
+            children: <Widget>[
+              ListTile(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                leading: Icon(Icons.settings),
+                title: Text(AppLocalizations.of(context).parameter),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) {
+                      return ParameterScreen();
+                    },
+                    settings: RouteSettings(
+                      name: '/',
+                    ),
+                  ));
+
+                  //pushNewScreen(context, screen: ParameterScreen());
+                },
+              ),
+              ListTile(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                leading: Icon(Icons.open_in_browser_outlined),
+                title: Text(AppLocalizations.of(context).openinbrowser),
+                onTap: () {
+                  _launchURL();
+                },
+              ),
+              ListTile(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                leading: Icon(Icons.logout),
+                title: Text(AppLocalizations.of(context).logout),
+                onTap: () async {
+                  //_restart();
+                  final sstorage = new FlutterSecureStorage();
+                  await sstorage.delete(key: approShop);
+                  //await sstorage.deleteAll();
+
+                  Navigator.of(context).popAndPushNamed('/');
+                  RestartWidget.restartApp(context);
+                  //Navigator.pushReplacement( context, MaterialPageRoute(builder: (BuildContext context) => MyApp()) );
+                },
+              ),
+            ]),
+      ),
+      Container(
+          padding: EdgeInsets.all(10),
+          height: 85,
+          child: Text(
+            'Version ' + approVersion,
+            style: TextStyle(fontSize: 10.0),
+          )),
+    ]));
   }
 }
 
@@ -3942,27 +3950,31 @@ class TouchSpin2 extends StatefulWidget {
   final bool showStockIcon;
   final String artnumint;
   final double leftPadding;
+  final bool showStock;
+  final BasketDetail basketRow;
 
-  const TouchSpin2(
+  TouchSpin2(
       {Key key,
-        this.value = 1.0,
-        this.onChanged,
-        this.min = 1.0,
-        this.max = 9999999.0,
-        this.step = 1.0,
-        this.iconSize = 24.0,
-        this.displayFormat,
-        this.subtractIcon = const Icon(Icons.remove),
-        this.addIcon = const Icon(Icons.add),
-        this.iconPadding = const EdgeInsets.all(4.0),
-        this.textStyle = const TextStyle(fontSize: 24),
-        this.iconActiveColor,
-        this.iconDisabledColor,
-        this.enabled = true,
-        this.scrollVisible = true,
-        this.showStockIcon = false,
-        this.artnumint = '',
-        this.leftPadding = 64})
+      this.value = 1.0,
+      this.onChanged,
+      this.min = 1.0,
+      this.max = 9999999.0,
+      this.step = 1.0,
+      this.iconSize = 24.0,
+      this.displayFormat,
+      this.subtractIcon = const Icon(Icons.remove),
+      this.addIcon = const Icon(Icons.add),
+      this.iconPadding = const EdgeInsets.all(4.0),
+      this.textStyle = const TextStyle(fontSize: 24),
+      this.iconActiveColor,
+      this.iconDisabledColor,
+      this.enabled = true,
+      this.scrollVisible = true,
+      this.showStockIcon = false,
+      this.artnumint = '',
+      this.leftPadding = 64,
+      this.showStock = false,
+      this.basketRow})
       : super(key: key);
 
   @override
@@ -3977,18 +3989,18 @@ class _TouchSpinState2 extends State<TouchSpin2> {
   num _value;
   String _text;
   BasketDetail _basketDetail =
-  BasketDetail('', '', '', false, 1, '', '', '', []);
+      BasketDetail('', '', '', false, 1, '', '', '', []);
   bool _edit = false;
   bool _stock = false;
   bool get minusBtnDisabled =>
       _value <= widget.min ||
-          _value - widget.step < widget.min ||
-          !widget.enabled;
+      _value - widget.step < widget.min ||
+      !widget.enabled;
 
   bool get addBtnDisabled =>
       _value >= widget.max ||
-          _value + widget.step > widget.max ||
-          !widget.enabled;
+      _value + widget.step > widget.max ||
+      !widget.enabled;
 
   bool get _scrollVisible => widget.scrollVisible;
   bool get _showStockIcon => widget.showStockIcon;
@@ -4004,14 +4016,17 @@ class _TouchSpinState2 extends State<TouchSpin2> {
   void initState() {
     super.initState();
     _value = widget.value;
-
+    _stock = widget.showStock;
+    if (_stock) {
+      //_basketDetail.artstofla = widget.artstofla;
+      //_basketDetail.artorduni = widget.artorduni;
+      _basketDetail = widget.basketRow;
+    }
     if (_scrollVisible) {
       Future.delayed(Duration(milliseconds: 200)).then((v) {
-        if (this.mounted) {
-          Scrollable.ensureVisible(context,
-              alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
-              duration: Duration(milliseconds: 200));
-        }
+        Scrollable.ensureVisible(context,
+            alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+            duration: Duration(milliseconds: 200));
       });
     }
   }
@@ -4028,75 +4043,75 @@ class _TouchSpinState2 extends State<TouchSpin2> {
               children: <Widget>[
                 _showStockIcon
                     ? ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: widget.leftPadding,
-                      maxWidth: widget.leftPadding,
-                    ),
-                    child: IconButton(
-                        icon: _stock
-                            ? Icon(Icons.expand_less_outlined,
-                            color: Colors.grey)
-                            : Icon(Feather.package),
-                        iconSize: 23.0,
-                        color: Colors.grey,
-                        onPressed: () async {
-                          if (!_stock) {
-                            await _checkStock(context);
-                            Future.delayed(Duration(milliseconds: 200))
-                                .then((v) {
-                              Scrollable.ensureVisible(
-                                  expansionKey.currentContext,
-                                  alignmentPolicy:
-                                  ScrollPositionAlignmentPolicy
-                                      .keepVisibleAtEnd,
-                                  duration: Duration(milliseconds: 200));
-                            });
-                          }
-                          if (_stock) {}
-                          setState(() {
-                            if (_edit) _edit = false;
-                            _stock = !_stock;
-                          });
-                        }))
+                        constraints: BoxConstraints(
+                          minWidth: widget.leftPadding,
+                          maxWidth: widget.leftPadding,
+                        ),
+                        child: IconButton(
+                            icon: _stock
+                                ? Icon(Icons.expand_less_outlined,
+                                    color: Colors.grey)
+                                : Icon(Feather.package),
+                            iconSize: 23.0,
+                            color: Colors.grey,
+                            onPressed: () async {
+                              if (!_stock) {
+                                await _checkStock(context);
+                                Future.delayed(Duration(milliseconds: 200))
+                                    .then((v) {
+                                  Scrollable.ensureVisible(
+                                      expansionKey.currentContext,
+                                      alignmentPolicy:
+                                          ScrollPositionAlignmentPolicy
+                                              .keepVisibleAtEnd,
+                                      duration: Duration(milliseconds: 200));
+                                });
+                              }
+                              if (_stock) {}
+                              setState(() {
+                                if (_edit) _edit = false;
+                                _stock = !_stock;
+                              });
+                            }))
                     : ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: widget.leftPadding,
-                    maxWidth: widget.leftPadding,
-                  ),
-                ),
+                        constraints: BoxConstraints(
+                          minWidth: widget.leftPadding,
+                          maxWidth: widget.leftPadding,
+                        ),
+                      ),
                 IconButton(
                   padding: widget.iconPadding,
                   iconSize: widget.iconSize,
                   color: minusBtnDisabled
                       ? widget.iconDisabledColor ??
-                      Theme.of(context).disabledColor
+                          Theme.of(context).disabledColor
                       : widget.iconActiveColor ??
-                      Theme.of(context).textTheme.button.color,
+                          Theme.of(context).textTheme.button.color,
                   icon: widget.subtractIcon,
                   onPressed: minusBtnDisabled
                       ? null
                       : () async {
-                    if (_edit) {
-                      setState(() {
-                        _edit = !_edit;
-                      });
-                    }
+                          if (_edit) {
+                            setState(() {
+                              _edit = !_edit;
+                            });
+                          }
 
-                    num newVal = _value - widget.step;
-                    setState(() {
-                      _value = newVal;
-                    });
-                    if (_stock) {
-                      await _checkStock(context);
-                      setState(() {
-                        _stock = !_stock;
-                        _stock = !_stock;
-                      });
-                    }
-                    if (widget.onChanged != null)
-                      widget.onChanged(newVal);
-                    _storage.writeBasket(basketChecked);
-                  },
+                          num newVal = _value - widget.step;
+                          setState(() {
+                            _value = newVal;
+                          });
+                          if (_stock) {
+                            await _checkStock(context);
+                            setState(() {
+                              _stock = !_stock;
+                              _stock = !_stock;
+                            });
+                          }
+                          if (widget.onChanged != null)
+                            widget.onChanged(newVal);
+                          _storage.writeBasket(basketChecked);
+                        },
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(
@@ -4117,40 +4132,40 @@ class _TouchSpinState2 extends State<TouchSpin2> {
                   iconSize: widget.iconSize,
                   color: addBtnDisabled
                       ? widget.iconDisabledColor ??
-                      Theme.of(context).disabledColor
+                          Theme.of(context).disabledColor
                       : widget.iconActiveColor ??
-                      Theme.of(context).textTheme.button.color,
+                          Theme.of(context).textTheme.button.color,
                   icon: widget.addIcon,
                   onPressed: addBtnDisabled
                       ? null
                       : () async {
-                    if (_edit) {
-                      setState(() {
-                        _edit = !_edit;
-                      });
-                    }
-                    num newVal = _value + widget.step;
-                    setState(() {
-                      _value = newVal;
-                    });
-                    if (_stock) {
-                      await _checkStock(context);
-                      setState(() {
-                        _stock = !_stock;
-                        _stock = !_stock;
-                      });
-                    }
+                          if (_edit) {
+                            setState(() {
+                              _edit = !_edit;
+                            });
+                          }
+                          num newVal = _value + widget.step;
+                          setState(() {
+                            _value = newVal;
+                          });
+                          if (_stock) {
+                            await _checkStock(context);
+                            setState(() {
+                              _stock = !_stock;
+                              _stock = !_stock;
+                            });
+                          }
 
-                    if (widget.onChanged != null)
-                      widget.onChanged(newVal);
-                    _storage.writeBasket(basketChecked);
-                  },
+                          if (widget.onChanged != null)
+                            widget.onChanged(newVal);
+                          _storage.writeBasket(basketChecked);
+                        },
                 ),
                 IconButton(
                     icon: _edit
                         ? Icon(Icons.expand_less_outlined, color: Colors.grey)
                         : Icon(Icons.keyboard, color: Colors.grey),
-                    onPressed: () {
+                    onPressed: () async {
                       if (!_edit) {
                         _text = '';
 
@@ -4165,127 +4180,137 @@ class _TouchSpinState2 extends State<TouchSpin2> {
                         //_value = num.parse(_text);
                         //if (widget.onChanged != null) widget.onChanged(_value);
                       }
+                      if (_edit && widget.showStock) { await _checkStock(context);}
                       setState(() {
                         if (_stock) _stock = false;
+                        if (_edit && widget.showStock) _stock = true;
                         _edit = !_edit;
                       });
                     })
               ]),
           _stock
               ? Row(children: <Widget>[
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: widget.leftPadding + 16,
-                maxWidth: widget.leftPadding + 16,
-              ),
-            ),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(children: <Widget>[
-                    _basketDetail.artoul.indexOf('|') == -1
-                        ? Text(AppLocalizations.of(context).orderunit +
-                        ': ' +
-                        _basketDetail.artorduni)
-                        : OrderUnitWidget(
-                        _basketDetail, true, _artnumint),
-                  ]),
-                  SizedBox(height: 4.0, width: 0.0),
-                  _basketDetail.artstofla == 'x'
-                      ? Container()
-                      : Row(children: <Widget>[
-                    _basketDetail.artstofla == ''
-                        ? _basketDetail.artsto == ''
-                        ? Text('')
-                        : Text(
-                        AppLocalizations.of(context).stock +
-                            ': ' +
-                            _basketDetail.artsto)
-                        : _basketDetail.artstofla == 'green'
-                        ? Wrap(children: <Widget>[
-                      Text(AppLocalizations.of(context)
-                          .stock +
-                          ': '),
-                      Icon(Icons.circle,
-                          color: Colors.green,
-                          size: (2 + approDataTextSize) *
-                              1.0)
-                    ])
-                        : _basketDetail.artstofla == 'yellow'
-                        ? Wrap(children: <Widget>[
-                      Text(
-                          AppLocalizations.of(context)
-                              .stock +
-                              ': '),
-                      Icon(Icons.circle,
-                          color: Colors.orange,
-                          size: (2 +
-                              approDataTextSize) *
-                              1.0)
-                    ])
-                        : Wrap(children: <Widget>[
-                      Text(
-                          AppLocalizations.of(context)
-                              .stock +
-                              ': '),
-                      Icon(Icons.circle,
-                          color: Colors.red,
-                          size: (2 +
-                              approDataTextSize) *
-                              1.0)
-                    ])
-                  ]),
-                ]),
-          ])
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: widget.leftPadding + 16,
+                      maxWidth: widget.leftPadding + 16,
+                    ),
+                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Text(AppLocalizations.of(context).orderunit +
+                              ': ' +
+                              _basketDetail.artorduni),
+                        ]),
+                        SizedBox(height: 4.0, width: 0.0),
+                        _basketDetail.artstofla == 'x'
+                            ? Container()
+                            : Row(children: <Widget>[
+                                _basketDetail.artstofla == ''
+                                    ? _basketDetail.artsto == ''
+                                        ? Text('')
+                                        : Text(
+                                            AppLocalizations.of(context).stock +
+                                                ': ' +
+                                                _basketDetail.artsto)
+                                    : _basketDetail.artstofla == 'green'
+                                        ? Wrap(children: <Widget>[
+                                            Text(AppLocalizations.of(context)
+                                                    .stock +
+                                                ': '),
+                                            Icon(Icons.circle,
+                                                color: Colors.green, size: 14)
+                                          ])
+                                        : _basketDetail.artstofla == 'yellow'
+                                            ? Wrap(children: <Widget>[
+                                                Text(
+                                                    AppLocalizations.of(context)
+                                                            .stock +
+                                                        ': '),
+                                                Icon(Icons.circle,
+                                                    color: Colors.orange,
+                                                    size: 14)
+                                              ])
+                                            : Wrap(children: <Widget>[
+                                                Text(
+                                                    AppLocalizations.of(context)
+                                                            .stock +
+                                                        ': '),
+                                                Icon(Icons.circle,
+                                                    color: Colors.red, size: 14)
+                                              ]),
+                              ]),
+                        approShowPrice == false || _basketDetail.artpri == 'x'
+                            ? Container()
+                            : SizedBox(
+                                height: 20,
+                                child: Row(children: <Widget>[
+                                  Text(AppLocalizations.of(context).price +
+                                      ': '),
+                                  Text(_basketDetail.artpri ==
+                                          _basketDetail.artbes
+                                      ? _basketDetail.artbes +
+                                          ' ' +
+                                          _basketDetail.artuni
+                                      : _basketDetail.artpri +
+                                          ' / ' +
+                                          _basketDetail.artbes +
+                                          ' ' +
+                                          _basketDetail.artuni)
+                                ])),
+                      ]),
+                ])
               : Container(),
           _edit
               ? Row(children: <Widget>[
-            _showStockIcon
-                ? ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: widget.leftPadding + 16,
-                maxWidth: widget.leftPadding + 16,
-              ),
-            )
-                : ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: widget.leftPadding + 16,
-                maxWidth: widget.leftPadding + 16,
-              ),
-            ),
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: 140,
-                maxWidth: 140,
-              ),
-              child: Container(
-                color: Theme.of(context).primaryColorDark,
-                child: VirtualKeyboard(
-                  height: 150,
-                  textColor: globals.menuActiveColor,
-                  type: VirtualKeyboardType.Numeric,
-                  onKeyPress: (key) {
-                    switch (key.action) {
-                      case VirtualKeyboardKeyAction.Backspace:
-                        if (_text.length == 0) return;
-                        _text = _text.substring(0, _text.length - 1);
-                        break;
-                      default:
-                        _text = _text + key.text;
-                    }
-                    setState(() {
-                      _text.length == 0
-                          ? _value = 1
-                          : _value = num.parse(_text);
-                    });
-                    if (widget.onChanged != null)
-                      widget.onChanged(_value);
-                    _storage.writeBasket(basketChecked);
-                  },
-                ),
-              ),
-            ),
-          ])
+                  _showStockIcon
+                      ? ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minWidth: widget.leftPadding + 16,
+                            maxWidth: widget.leftPadding + 16,
+                          ),
+                        )
+                      : ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minWidth: widget.leftPadding + 16,
+                            maxWidth: widget.leftPadding + 16,
+                          ),
+                        ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: 140,
+                      maxWidth: 140,
+                    ),
+                    child: Container(
+                      color: Theme.of(context).primaryColorDark,
+                      child: VirtualKeyboard(
+                        height: 150,
+                        textColor: globals.menuActiveColor,
+                        type: VirtualKeyboardType.Numeric,
+                        onKeyPress: (key) {
+                          switch (key.action) {
+                            case VirtualKeyboardKeyAction.Backspace:
+                              if (_text.length == 0) return;
+                              _text = _text.substring(0, _text.length - 1);
+                              break;
+                            default:
+                              _text = _text + key.text;
+                          }
+                          setState(() {
+                            _text.length == 0
+                                ? _value = 1
+                                : _value = num.parse(_text);
+                          });
+                          if (widget.onChanged != null)
+                            widget.onChanged(_value);
+                          _storage.writeBasket(basketChecked);
+                        },
+                      ),
+                    ),
+                  ),
+                ])
               : Container(),
         ]);
   }
@@ -4304,15 +4329,15 @@ class TouchInfo extends StatefulWidget {
 
   const TouchInfo(
       {Key key,
-        this.iconSize = 24.0,
-        this.displayFormat,
-        this.iconPadding = const EdgeInsets.all(4.0),
-        this.iconActiveColor,
-        this.iconDisabledColor,
-        this.enabled = true,
-        this.artnumint = '',
-        this.leftPadding = 64,
-        this.artpri = ''})
+      this.iconSize = 24.0,
+      this.displayFormat,
+      this.iconPadding = const EdgeInsets.all(4.0),
+      this.iconActiveColor,
+      this.iconDisabledColor,
+      this.enabled = true,
+      this.artnumint = '',
+      this.leftPadding = 64,
+      this.artpri = ''})
       : super(key: key);
 
   @override
@@ -4324,7 +4349,7 @@ class _TouchInfoState extends State<TouchInfo> {
 
   num _value;
   BasketDetail _basketDetail =
-  BasketDetail('', '', '', false, 1, '', '', '', []);
+      BasketDetail('', '', '', false, 1, '', '', '', []);
   bool _stock = false;
 
   String get _artnumint => widget.artnumint;
@@ -4368,12 +4393,12 @@ class _TouchInfoState extends State<TouchInfo> {
                     icon: _stock
                         ? Icon(Icons.expand_less_outlined, color: Colors.grey)
                         : (approShowPrice
-                        ? Image.asset(
-                      'images/pricetag.png',
-                      width: 18.0,
-                    )
-                        : Icon(Feather.package,
-                        color: Colors.grey, size:18.0)),
+                            ? Image.asset(
+                                'images/pricetag.png',
+                                width: 18.0,
+                              )
+                            : Icon(Feather.package,
+                                color: Colors.grey, size: 18.0)),
                     /*Icons.expand_more_outlined*/
                     iconSize: 23.0,
                     color: Colors.grey,
@@ -4401,84 +4426,84 @@ class _TouchInfoState extends State<TouchInfo> {
               ]),
           _stock
               ? Row(children: <Widget>[
-            SizedBox(width: widget.leftPadding + 12),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(children: <Widget>[
-                    _basketDetail.artoul.indexOf('|') == -1
-                        ? Text(AppLocalizations.of(context).orderunit +
-                        ': ' +
-                        _basketDetail.artorduni)
-                        : OrderUnitWidget(
-                        _basketDetail, true, _artnumint),
-                  ]),
-                  SizedBox(height: 4.0, width: 0.0),
-                  _basketDetail.artstofla == 'x'
-                      ? Container()
-                      : Row(children: <Widget>[
-                    _basketDetail.artstofla == ''
-                        ? _basketDetail.artsto == ''
-                        ? Text('')
-                        : Text(
-                        AppLocalizations.of(context).stock +
-                            ': ' +
-                            _basketDetail.artsto)
-                        : _basketDetail.artstofla == 'green'
-                        ? Wrap(children: <Widget>[
-                      Text(AppLocalizations.of(context)
-                          .stock +
-                          ': '),
-                      Icon(Icons.circle,
-                          color: Colors.green,
-                          size: (2 + approDataTextSize) *
-                              1.0)
-                    ])
-                        : _basketDetail.artstofla == 'yellow'
-                        ? Wrap(children: <Widget>[
-                      Text(
-                          AppLocalizations.of(context)
-                              .stock +
-                              ': '),
-                      Icon(Icons.circle,
-                          color: Colors.orange,
-                          size: (2 +
-                              approDataTextSize) *
-                              1.0)
-                    ])
-                        : Wrap(children: <Widget>[
-                      Text(
-                          AppLocalizations.of(context)
-                              .stock +
-                              ': '),
-                      Icon(Icons.circle,
-                          color: Colors.red,
-                          size: (2 +
-                              approDataTextSize) *
-                              1.0)
-                    ])
-                  ]),
-                  SizedBox(height: 4.0, width: 0.0),
-                  approShowPrice
-                      ? Row(children: <Widget>[
-                    Wrap(children: <Widget>[
-                      Text(AppLocalizations.of(context).price +
-                          ': '),
-                      Text(_basketDetail.artpri ==
-                          _basketDetail.artbes
-                          ? _basketDetail.artbes +
-                          ' ' +
-                          _basketDetail.artuni
-                          : _basketDetail.artpri +
-                          ' / ' +
-                          _basketDetail.artbes +
-                          ' ' +
-                          _basketDetail.artuni)
-                    ])
-                  ])
-                      : Container(),
-                ]),
-          ])
+                  SizedBox(width: widget.leftPadding + 12),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          _basketDetail.artoul.indexOf('|') == -1
+                              ? Text(AppLocalizations.of(context).orderunit +
+                                  ': ' +
+                                  _basketDetail.artorduni)
+                              : OrderUnitWidget(
+                                  _basketDetail, true, _artnumint),
+                        ]),
+                        SizedBox(height: 4.0, width: 0.0),
+                        _basketDetail.artstofla == 'x'
+                            ? Container()
+                            : Row(children: <Widget>[
+                                _basketDetail.artstofla == ''
+                                    ? _basketDetail.artsto == ''
+                                        ? Text('')
+                                        : Text(
+                                            AppLocalizations.of(context).stock +
+                                                ': ' +
+                                                _basketDetail.artsto)
+                                    : _basketDetail.artstofla == 'green'
+                                        ? Wrap(children: <Widget>[
+                                            Text(AppLocalizations.of(context)
+                                                    .stock +
+                                                ': '),
+                                            Icon(Icons.circle,
+                                                color: Colors.green,
+                                                size: (2 + approDataTextSize) *
+                                                    1.0)
+                                          ])
+                                        : _basketDetail.artstofla == 'yellow'
+                                            ? Wrap(children: <Widget>[
+                                                Text(
+                                                    AppLocalizations.of(context)
+                                                            .stock +
+                                                        ': '),
+                                                Icon(Icons.circle,
+                                                    color: Colors.orange,
+                                                    size: (2 +
+                                                            approDataTextSize) *
+                                                        1.0)
+                                              ])
+                                            : Wrap(children: <Widget>[
+                                                Text(
+                                                    AppLocalizations.of(context)
+                                                            .stock +
+                                                        ': '),
+                                                Icon(Icons.circle,
+                                                    color: Colors.red,
+                                                    size: (2 +
+                                                            approDataTextSize) *
+                                                        1.0)
+                                              ])
+                              ]),
+                        SizedBox(height: 4.0, width: 0.0),
+                        approShowPrice
+                            ? Row(children: <Widget>[
+                                Wrap(children: <Widget>[
+                                  Text(AppLocalizations.of(context).price +
+                                      ': '),
+                                  Text(_basketDetail.artpri ==
+                                          _basketDetail.artbes
+                                      ? _basketDetail.artbes +
+                                          ' ' +
+                                          _basketDetail.artuni
+                                      : _basketDetail.artpri +
+                                          ' / ' +
+                                          _basketDetail.artbes +
+                                          ' ' +
+                                          _basketDetail.artuni)
+                                ])
+                              ])
+                            : Container(),
+                      ]),
+                ])
               : Container(),
         ]);
   }
@@ -4502,7 +4527,7 @@ class _OrderUnitWidgetState extends State<OrderUnitWidget> {
   String artnumint;
   final ItemScrollController itemScrollController = ItemScrollController();
   final ItemPositionsListener itemPositionsListener =
-  ItemPositionsListener.create();
+      ItemPositionsListener.create();
 
   @override
   void initState() {
@@ -4552,7 +4577,7 @@ class _OrderUnitWidgetState extends State<OrderUnitWidget> {
         onSelected: (bool selected) {
           setState(() {
             int _idx =
-            basketChecked.indexWhere((e) => e.artnumint == artnumint);
+                basketChecked.indexWhere((e) => e.artnumint == artnumint);
             if (_idx > -1) basketChecked[_idx].artorduni = myTab[i];
             if (refresh) checkBasket(context, _idx);
             if (selected) {
