@@ -3396,6 +3396,8 @@ class _CheckedWidgetState extends State<CheckedWidget> {
       basrow.artbes = _basrow.artbes;
       basrow.artstofla = _basrow.artstofla;
       basrow.artsto = _basrow.artsto;
+      basrow.artpri = _basrow.artpri;
+
       basketChecked.add(basrow);
       basketChecked[basketChecked.length - 1].newchecked = true;
     }
