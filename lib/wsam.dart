@@ -322,6 +322,8 @@ Future<String> getOrderInfo(context) async {
   });
   if (context != null) Navigator.pop(context);
   if (isTo) return '';
+  print(getItemToken(response.body,'<date id="calendar_1"',2));
+
   var document = XmlDocument.parse(response.body);
   if (document.findAllElements('result').first.text == '0:OK') {
     //print(document.findAllElements('data').first.innerText);

@@ -10,6 +10,7 @@ import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_component
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'textfield.dart';
 import 'searchable_dropdown.dart';
+import 'package:intl/intl.dart';
 
 class OrderFormXml extends StatefulWidget {
   const OrderFormXml(this.xmlOrder);
@@ -36,7 +37,7 @@ class _OrderFormXmlState extends State<OrderFormXml> {
       cp.ReactiveSingleSelectChipChoiceRenderer(),
       cp.MultiSelectChipChoiceRenderer(),
       cp.MultiSelectChipGroupRenderer(),
-      cp.ReactiveDateRenderer(),
+      ReactiveDateRenderer2(),
     ];
   }
 
@@ -381,6 +382,62 @@ class ReactiveTextFieldRenderer2 extends FormElementRenderer<cp.TextField> {
           label: element.label,
           textInputType: element.inputType,
           dispatcher: dispatcher,
+        );
+      },
+    );
+  }
+}
+
+class ReactiveDateRenderer2 extends FormElementRenderer<cp.Date> {
+
+  @override
+  Widget render(
+      cp.Date element,
+      BuildContext context,
+      FormElementEventDispatcherFunction dispatcher,
+      FormElementRendererFunction renderer) {
+    return StreamBuilder(
+      stream: element.valueChanged,
+      builder: (BuildContext context, _) {
+        final format = DateFormat(element.format);
+        var value = element.value;
+        final DateTime time = value != null ? value : element.initialDate;
+
+        return Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: format.format(time),
+              ),
+              onTap: () async {
+                FocusScope.of(context).requestFocus(FocusNode());
+                var firstDate = element.firstDate;
+                var lastDate = element.lastDate;
+
+                final DateTime picked = await showDatePicker(
+                  context: context,
+                  firstDate:
+                  firstDate != null ? firstDate : DateTime(1979, 01, 01),
+                  lastDate:
+                  lastDate != null ? lastDate : DateTime(2050, 01, 01),
+                  initialDate: element.initialDate,
+                  selectableDayPredicate: (DateTime val) =>
+                  val.weekday == 6 || val.weekday == 7 ? false : true,
+                );
+
+                if (picked != null) {
+                  dispatcher(
+                    ChangeValueEvent(
+                      value: picked,
+                      elementId: element.id,
+                      // propertyName: model.Date.valuePropertyName,
+                    ),
+                  );
+                }
+              },
+            ),
+          ),
         );
       },
     );
