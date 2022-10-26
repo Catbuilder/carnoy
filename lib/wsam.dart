@@ -297,10 +297,19 @@ Future<String> getOrderInfo(context) async {
   cXML += '<type>getorderinfo</type>';
   cXML += '<language>' + myLang + '</language>';
   var myData = '';
-  for (var b in basketChecked ?? []) {
+  double myTotal = 0;
+  double myOpu = 0;
+  BasketDetail b;
+  for (b in basketChecked ?? []) {
     if (myData != '') myData += '||';
     myData += b.artnumint + '##' + b.artqty.toString();
+    myOpu = double.tryParse(b.artorduni.toString().replaceAll(b.artuni,''));
+    if(myOpu == null) myOpu = 1;
+    print(double.parse(b.artbes) * b.artqty * myOpu);
+    myTotal += double.parse(b.artbes) * b.artqty * myOpu;
   }
+  print(myTotal);
+  cXML += '<par1>' + myTotal.toString() + '</par1>';
   cXML += '<data>' + myData + '</data>';
 
   cXML += '</request>';
@@ -322,7 +331,7 @@ Future<String> getOrderInfo(context) async {
   });
   if (context != null) Navigator.pop(context);
   if (isTo) return '';
-  print(getItemToken(response.body,'<date id="calendar_1"',2));
+  //print(getItemToken(response.body,'<date id="calendar_1"',2));
 
   var document = XmlDocument.parse(response.body);
   if (document.findAllElements('result').first.text == '0:OK') {
