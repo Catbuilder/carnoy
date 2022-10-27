@@ -79,9 +79,8 @@ class _OrderFormXmlState extends State<OrderFormXml> {
               ),
               Builder(builder: (context) {
                 return Center(
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.send),
-                    label: Text(AppLocalizations.of(context).order),
+                  child: ElevatedButton(
+                    child: Text(AppLocalizations.of(context).order),
                     onPressed: () {
                       var formProperties =
                           FormProvider.of<df.XmlFormManager>(context)

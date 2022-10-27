@@ -53,7 +53,6 @@ class MaterialAppWithTheme extends StatelessWidget {
         const Locale('en', ''), // English, no country code
         const Locale('fr', ''), // French, no country code
         const Locale('nl', ''), // Dutch, no country code
-        const Locale('de', ''), // German, no country code
       ],
     );
   }

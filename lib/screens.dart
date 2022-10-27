@@ -1989,7 +1989,7 @@ class _ScanScreenState extends State<ScanScreen> {
         MaterialPageRoute(builder: (BuildContext context2) => ScanScanScreen());
     final _scanBarcode = await Navigator.of(context2).push(route);
     if (_scanBarcode.toString() != 'null')
-      checkItem(context2, _scanBarcode.toString(),true);
+      checkItem(context2, _scanBarcode.toString(), true);
   }
 
   void _addItem() async {
@@ -1997,7 +1997,7 @@ class _ScanScreenState extends State<ScanScreen> {
       builder: (BuildContext context) => ScanAddScreen(),
     );
     final result = await Navigator.of(context).push(route);
-    if (result != null) checkItem(context, result,true);
+    if (result != null) checkItem(context, result, true);
   }
 
   void _toCart() {
@@ -3293,68 +3293,6 @@ class _SendFavoriteScreen extends State<SendFavoriteScreen> {
   }
 }
 
-class SendOrderScreen extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-          title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//            crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-            Text('Send order'),
-          ])),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 5.0, bottom: 60),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 25.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                child: CupertinoTextField(
-                  prefix: Text('Name'),
-                  controller: nameController,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  clearButtonMode: OverlayVisibilityMode.editing,
-                  keyboardType: TextInputType.emailAddress,
-                  autocorrect: false,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        width: 0,
-                        color: CupertinoColors.inactiveGray,
-                      ),
-                    ),
-                  ),
-                  placeholder: 'Name',
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Center(
-                child: ElevatedButton.icon(
-                  icon: Icon(Icons.send),
-                  label: Text("Order now"),
-                  onPressed: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/', (Route<dynamic> route) => false);
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class CheckedWidget extends StatefulWidget {
   CheckedWidget(this.basrow);
   final BasketDetail basrow;
@@ -3595,13 +3533,16 @@ class _SearchScreen extends State<SearchScreen>
         titleSpacing: 0,
         flexibleSpace: CupertinoNavigationBar(
           backgroundColor: myTheme.bottomAppBarColor,
-          middle: IOSSearchBar(
-            controller: _searchTextController,
-            focusNode: _searchFocusNode,
-            animation: _animation,
-            onCancel: _cancelSearch,
-            onClear: _clearSearch,
-            onSubmit: _goSearch,
+          middle: Listener(
+            onPointerDown: (_) { if(!_searchFocusNode.hasFocus) _searchFocusNode.requestFocus(); },
+            child: IOSSearchBar(
+              controller: _searchTextController,
+              focusNode: _searchFocusNode,
+              animation: _animation,
+              onCancel: _cancelSearch,
+              onClear: _clearSearch,
+              onSubmit: _goSearch,
+            ),
           ),
         ),
       ),
@@ -4184,7 +4125,9 @@ class _TouchSpinState2 extends State<TouchSpin2> {
                         //_value = num.parse(_text);
                         //if (widget.onChanged != null) widget.onChanged(_value);
                       }
-                      if (_edit && widget.showStock) { await _checkStock(context);}
+                      if (_edit && widget.showStock) {
+                        await _checkStock(context);
+                      }
                       setState(() {
                         if (_stock) _stock = false;
                         if (_edit && widget.showStock) _stock = true;

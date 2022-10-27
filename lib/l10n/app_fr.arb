@@ -24,7 +24,7 @@
   "sendbas": "Mettre dans le panier en cours sur l'e-shop",
   "sendbasok": "Votre panier a été ajouté",
   "sendbasokx": "Votre panier a été ajouté, mais certains articles n'ont pas pu être ajoutés",
-  "sendorder": "Envoyer comme une commande",
+  "sendorder": "Commander",
   "namefav": "Nom",
   "namefavh": "Nom du panier favori",
   "notfound": "Article non trouvé",

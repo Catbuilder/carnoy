@@ -24,7 +24,7 @@
   "sendbas": "Add to current basket on e-shop", "@sendbas": {"description": "Add to current basket on e-shop"},
   "sendbasok": "Your cart is added", "@sendbasok": {"description": "Your cart is added"},
   "sendbasokx": "Your cart is added, but some item has not been added", "@sendbasokx": {"description": "Your cart is nearly added"},
-  "sendorder": "Send as a new order", "@sendorder": {"description": "Send as a new order"},
+  "sendorder": "Order", "@sendorder": {"description": "Send as a new order"},
   "namefav": "Name", "@namefav": {"description": "Favorite basket name"},
   "namefavh": "Favorite basket name", "@namefavh": {"description": "Favorite basket name holder"},
   "notfound": "Item not found", "@notfound": {"description": "Item not found"},
