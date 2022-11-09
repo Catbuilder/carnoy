@@ -3037,16 +3037,26 @@ class BasketSendScreen extends StatelessWidget {
   }
 
   sendOrder(context) async {
-    var myXML = await getOrderInfo(context);
+    var myXML = await getOrderInfo(context,'send');
     if (myXML != '') {
       var route = MaterialPageRoute(
         settings: RouteSettings(name: '/send/order'),
-        builder: (BuildContext context) => OrderFormXml(myXML),
+        builder: (BuildContext context) => OrderFormXml(myXML,'order'),
       );
       Navigator.of(context).push(route);
     }
   }
 
+  requestOffer(context) async {
+    var myXML = await getOrderInfo(context,'ask');
+    if (myXML != '') {
+      var route = MaterialPageRoute(
+        settings: RouteSettings(name: '/send/order'),
+        builder: (BuildContext context) => OrderFormXml(myXML,'ask'),
+      );
+      Navigator.of(context).push(route);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -3079,6 +3089,7 @@ class BasketSendScreen extends StatelessWidget {
                 sendBasketBasket(context);
               },
             ),
+            approCanOrder ?
             ListTile(
               title: Text(AppLocalizations.of(context).sendorder),
               trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
@@ -3086,7 +3097,16 @@ class BasketSendScreen extends StatelessWidget {
               onTap: () {
                 sendOrder(context);
               },
-            ),
+            ) : Container(),
+            approCanOffer ?
+            ListTile(
+              title: Text(AppLocalizations.of(context).offerrequest),
+              trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+              enabled: approCanOffer,
+              onTap: () {
+                requestOffer(context);
+              },
+            ) : Container(),
           ]),
         ),
       ),

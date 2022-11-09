@@ -13,15 +13,18 @@ import 'searchable_dropdown.dart';
 import 'package:intl/intl.dart';
 
 class OrderFormXml extends StatefulWidget {
-  const OrderFormXml(this.xmlOrder);
+  const OrderFormXml(this.xmlOrder, this.orderType);
   final String xmlOrder;
+  final String orderType;
   @override
-  _OrderFormXmlState createState() => _OrderFormXmlState(this.xmlOrder);
+  _OrderFormXmlState createState() =>
+      _OrderFormXmlState(this.xmlOrder, this.orderType);
 }
 
 class _OrderFormXmlState extends State<OrderFormXml> {
-  _OrderFormXmlState(this.xmlOrder);
+  _OrderFormXmlState(this.xmlOrder, this.orderType);
   final String xmlOrder;
+  final String orderType;
 
   List<FormElementRenderer<df.FormElement>> getReactiveRenderers() {
     return [
@@ -53,7 +56,7 @@ class _OrderFormXmlState extends State<OrderFormXml> {
         .map((riv) => '[${riv.id}]${riv.value}[/${riv.id}]')
         .toList()
         .join(''));
-    if (await sendBasket(context, 'order', 'basket', '', myXml, false)) {
+    if (await sendBasket(context, orderType, 'basket', '', myXml, false)) {
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
     }
@@ -63,7 +66,10 @@ class _OrderFormXmlState extends State<OrderFormXml> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).sendorder,
+          title: Text(
+              orderType == 'order'
+                  ? AppLocalizations.of(context).sendorder
+                  : AppLocalizations.of(context).offerrequest,
               style: TextStyle(fontSize: 12.0)),
         ),
         body: Center(
@@ -80,7 +86,9 @@ class _OrderFormXmlState extends State<OrderFormXml> {
               Builder(builder: (context) {
                 return Center(
                   child: ElevatedButton(
-                    child: Text(AppLocalizations.of(context).order),
+                    child: orderType == 'order'
+                        ? Text(AppLocalizations.of(context).order)
+                        : Text(AppLocalizations.of(context).send),
                     onPressed: () {
                       var formProperties =
                           FormProvider.of<df.XmlFormManager>(context)
@@ -388,7 +396,6 @@ class ReactiveTextFieldRenderer2 extends FormElementRenderer<cp.TextField> {
 }
 
 class ReactiveDateRenderer2 extends FormElementRenderer<cp.Date> {
-
   @override
   Widget render(
       cp.Date element,
@@ -417,12 +424,12 @@ class ReactiveDateRenderer2 extends FormElementRenderer<cp.Date> {
                 final DateTime picked = await showDatePicker(
                   context: context,
                   firstDate:
-                  firstDate != null ? firstDate : DateTime(1979, 01, 01),
+                      firstDate != null ? firstDate : DateTime(1979, 01, 01),
                   lastDate:
-                  lastDate != null ? lastDate : DateTime(2050, 01, 01),
+                      lastDate != null ? lastDate : DateTime(2050, 01, 01),
                   initialDate: element.initialDate,
                   selectableDayPredicate: (DateTime val) =>
-                  val.weekday == 6 || val.weekday == 7 ? false : true,
+                      val.weekday == 6 || val.weekday == 7 ? false : true,
                 );
 
                 if (picked != null) {

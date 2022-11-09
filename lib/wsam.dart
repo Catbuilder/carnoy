@@ -27,6 +27,7 @@ var approPDFSuffix = '_';
 var approShowPrice = true;
 var approDisableShowPrice = false;
 var approCanOrder = false;
+var approCanOffer = true;
 var approVersion = '';
 var approLogo = '';
 var approInitialIndex = 0;
@@ -109,6 +110,7 @@ Future<ReturnFunctionCode> getCredential(us, ps, sh, context, to) async {
   if (tag.length > 0) approLogo = tag.first.text;
 
   approCanOrder = (document.findAllElements('canorder').first.text == 'true');
+  approCanOffer = (document.findAllElements('canoffer').first.text == 'true');
   final languages = document.findAllElements('languages');
   approLanguages = [];
   approLanguage = 'fr';
@@ -272,7 +274,7 @@ Future<List<InfoNews>> getApproNews(context) async {
   }
 }
 
-Future<String> getOrderInfo(context) async {
+Future<String> getOrderInfo(context, t) async {
   var myUrl = 'https://' + approShop + '.catbuilder.info/catalogs/wsam.asp';
   var cXML = '<?xml version="1.0" encoding="UTF-8" ?>';
   var isTo = false;
@@ -310,6 +312,7 @@ Future<String> getOrderInfo(context) async {
   }
   print(myTotal);
   cXML += '<par1>' + myTotal.toString() + '</par1>';
+  cXML += '<par2>' + t + '</par2>';
   cXML += '<data>' + myData + '</data>';
 
   cXML += '</request>';
@@ -471,7 +474,7 @@ Future<bool> sendBasket(context, t, n, u, com, sendcopy) async {
   cXML += '<type>send' + t + '</type>';
   cXML += '<par1>' + n + '</par1>';
   cXML += '<par2>join</par2>';
-  if ((t == 'favorite' || t == 'order') && (u != approUser || com != '')) {
+  if ((t == 'favorite' || t == 'order' || t == 'ask') && (u != approUser || com != '')) {
     cXML += '<par3>' + u + '</par3>';
     cXML += '<par4>' +
         XmlToken.openCDATA +
@@ -483,6 +486,7 @@ Future<bool> sendBasket(context, t, n, u, com, sendcopy) async {
     }
   }
   cXML += '<language>' + approLanguage + '</language>';
+  //print(cXML);
   var myData = '';
   for (var b in basketChecked ?? []) {
     if (myData != '') myData += '||';
