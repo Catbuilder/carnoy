@@ -970,6 +970,8 @@ class _FavoriteScreen extends State<FavoriteScreen> {
     setState(() {});
   }
 
+  void _confirm() {}
+
   @override
   Widget build(BuildContext context) {
     mapMenuSegment.putIfAbsent(
@@ -1010,38 +1012,82 @@ class _FavoriteScreen extends State<FavoriteScreen> {
                 ? basketArchive.length
                 : basketFavorite.length,
             itemBuilder: (BuildContext context, int index) {
-              return Column(
-                children: <Widget>[
-                  ListTile(
-                    title: Text(segmentedControlValue == 1
-                        ? basketArchive[index].basdes +
-                            '\n' +
-                            basketArchive[index].basdat
-                        : basketFavorite[index].basdes),
-                    onTap: () {
-                      var route = MaterialPageRoute(
-                        builder: (BuildContext context) => FavoriteDetailScreen(
-                          basdes: (segmentedControlValue == 1
-                                  ? basketArchive
-                                  : basketFavorite)[index]
-                              .basdes,
-                          basval: (segmentedControlValue == 1
-                                  ? basketArchive
-                                  : basketFavorite)[index]
-                              .basval,
-                          basurl: '',
-                          synctoc: true,
-                          onScreenHideButtonPressed: onScreenHideButtonPressed,
-                        ),
-                      );
-                      Navigator.of(context).push(route);
-                    },
-                    trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+              return Dismissible(
+                confirmDismiss: (DismissDirection direction) async {
+                  return await showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content:  Text(
+                              AppLocalizations.of(context).confirmdeletetext),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () =>
+                                    Navigator.of(context).pop(true),
+                                child:  Text(AppLocalizations.of(context).delete)),
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text(AppLocalizations.of(context).cancel),
+                            ),
+                          ],
+                        );
+                      });
+                },
+                onDismissed: (DismissDirection direction) async {
+                  if (segmentedControlValue == 0) {
+                    if (await delFavorite(
+                        context, basketFavorite[index].basnum)) {
+                      setState(() {});
+                    }
+                  }
+                },
+                secondaryBackground: Container(
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context).delete,
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                  Divider(
-                    height: 1.0,
-                  ),
-                ],
+                  color: Colors.red,
+                ),
+                key: UniqueKey(),
+                direction: segmentedControlValue == 0 ? DismissDirection.endToStart : DismissDirection.none,
+                background: Container(),
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(segmentedControlValue == 1
+                          ? basketArchive[index].basdes +
+                              '\n' +
+                              basketArchive[index].basdat
+                          : basketFavorite[index].basdes),
+                      onTap: () {
+                        var route = MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              FavoriteDetailScreen(
+                            basdes: (segmentedControlValue == 1
+                                    ? basketArchive
+                                    : basketFavorite)[index]
+                                .basdes,
+                            basval: (segmentedControlValue == 1
+                                    ? basketArchive
+                                    : basketFavorite)[index]
+                                .basval,
+                            basurl: '',
+                            synctoc: true,
+                            onScreenHideButtonPressed:
+                                onScreenHideButtonPressed,
+                          ),
+                        );
+                        Navigator.of(context).push(route);
+                      },
+                      trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                    ),
+                    Divider(
+                      height: 1.0,
+                    ),
+                  ],
+                ),
               );
             },
           ),
@@ -3037,26 +3083,27 @@ class BasketSendScreen extends StatelessWidget {
   }
 
   sendOrder(context) async {
-    var myXML = await getOrderInfo(context,'send');
+    var myXML = await getOrderInfo(context, 'send');
     if (myXML != '') {
       var route = MaterialPageRoute(
         settings: RouteSettings(name: '/send/order'),
-        builder: (BuildContext context) => OrderFormXml(myXML,'order'),
+        builder: (BuildContext context) => OrderFormXml(myXML, 'order'),
       );
       Navigator.of(context).push(route);
     }
   }
 
   requestOffer(context) async {
-    var myXML = await getOrderInfo(context,'ask');
+    var myXML = await getOrderInfo(context, 'ask');
     if (myXML != '') {
       var route = MaterialPageRoute(
         settings: RouteSettings(name: '/send/order'),
-        builder: (BuildContext context) => OrderFormXml(myXML,'ask'),
+        builder: (BuildContext context) => OrderFormXml(myXML, 'ask'),
       );
       Navigator.of(context).push(route);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -3089,24 +3136,26 @@ class BasketSendScreen extends StatelessWidget {
                 sendBasketBasket(context);
               },
             ),
-            approCanOrder ?
-            ListTile(
-              title: Text(AppLocalizations.of(context).sendorder),
-              trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
-              enabled: approCanOrder,
-              onTap: () {
-                sendOrder(context);
-              },
-            ) : Container(),
-            approCanOffer ?
-            ListTile(
-              title: Text(AppLocalizations.of(context).offerrequest),
-              trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
-              enabled: approCanOffer,
-              onTap: () {
-                requestOffer(context);
-              },
-            ) : Container(),
+            approCanOrder
+                ? ListTile(
+                    title: Text(AppLocalizations.of(context).sendorder),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                    enabled: approCanOrder,
+                    onTap: () {
+                      sendOrder(context);
+                    },
+                  )
+                : Container(),
+            approCanOffer
+                ? ListTile(
+                    title: Text(AppLocalizations.of(context).offerrequest),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                    enabled: approCanOffer,
+                    onTap: () {
+                      requestOffer(context);
+                    },
+                  )
+                : Container(),
           ]),
         ),
       ),
@@ -3554,7 +3603,9 @@ class _SearchScreen extends State<SearchScreen>
         flexibleSpace: CupertinoNavigationBar(
           backgroundColor: myTheme.bottomAppBarColor,
           middle: Listener(
-            onPointerDown: (_) { if(!_searchFocusNode.hasFocus) _searchFocusNode.requestFocus(); },
+            onPointerDown: (_) {
+              if (!_searchFocusNode.hasFocus) _searchFocusNode.requestFocus();
+            },
             child: IOSSearchBar(
               controller: _searchTextController,
               focusNode: _searchFocusNode,

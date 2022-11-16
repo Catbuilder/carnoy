@@ -56,6 +56,8 @@
   "keepcopy": "Bewaar een kopie in mijn favorieten",
   "sendorderok": "Uw winkelwagen is verzonden",
   "thumbsize": "Grootte van miniaturen",
-  "offerrequest": "Offert aanvragen"
-
+  "offerrequest": "Offerte aanvragen",
+  "confirmdeletetext": "Bent, u zeker dat u dit item wilt verwijderen?",
+  "deleteok": "Item is verwijderd",
+  "deletenok": "Fout, item is niet verwijderd"
 }

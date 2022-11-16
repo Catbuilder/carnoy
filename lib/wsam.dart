@@ -459,6 +459,66 @@ Future<bool> getFavorite(context) async {
   return true;
 }
 
+Future<bool> delFavorite(context,basnum) async {
+  var myUrl = 'https://' + approShop + '.catbuilder.info/catalogs/wsam.asp';
+  var cXML = '<?xml version="1.0" encoding="UTF-8" ?>';
+  cXML += '<dbsync>';
+  cXML += '<header>';
+  cXML += '<sender><credential><client>appro724</client><identity>' +
+      approUser +
+      '</identity><sharedsecret>' +
+      approCredential +
+      '</sharedsecret></credential></sender>';
+
+  cXML += '</header>';
+  cXML += '<request>';
+  cXML += '<type>delfavorit</type>';
+  cXML += '<par1>'+basnum+'</par1>';
+  cXML += '</request>';
+  cXML += '</dbsync>';
+  if (context != null) {
+    showCupertinoModalPopup(
+        context: context,
+        useRootNavigator: false,
+        builder: (context) => Container(
+            color: Colors.white.withOpacity(0.5),
+            child: Center(child: CircularProgressIndicator())));
+  }
+  http.Response response = await http.post(Uri.parse(myUrl), body: cXML);
+  var document = XmlDocument.parse(response.body);
+  if (document.findAllElements('result').first.text == '0:OK') {
+    await getFavorite(null);
+    if (context != null) Navigator.pop(context);
+
+    final snackBar = SnackBar(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      behavior: SnackBarBehavior.fixed,
+      content: Text(AppLocalizations.of(context).deleteok),
+      action: SnackBarAction(
+        label: AppLocalizations.of(context).hide,
+        onPressed: () {},
+      ),
+    );
+    scaffoldMessengerKey.currentState.showSnackBar(snackBar);
+  } else {
+    if (context != null) Navigator.pop(context);
+    final snackBar = SnackBar(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      behavior: SnackBarBehavior.fixed,
+      content: Text(AppLocalizations.of(context).deletenok),
+      action: SnackBarAction(
+        label: AppLocalizations.of(context).hide,
+        onPressed: () {},
+      ),
+    );
+  }
+
+  //
+  //print(cXML);
+  //print(response.body);
+  return true;
+}
+
 Future<bool> sendBasket(context, t, n, u, com, sendcopy) async {
   var myUrl = 'https://' + approShop + '.catbuilder.info/catalogs/wsam.asp';
   var cXML = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -505,6 +565,7 @@ Future<bool> sendBasket(context, t, n, u, com, sendcopy) async {
           color: Colors.white.withOpacity(0.5),
           child: Center(child: CircularProgressIndicator())));
   http.Response response = await http.post(Uri.parse(myUrl), body: cXML);
+
   Navigator.pop(context);
 
   if (t == 'print') return true;
@@ -523,6 +584,7 @@ Future<bool> sendBasket(context, t, n, u, com, sendcopy) async {
       var _storage = new BasketStorage();
       _storage.writeBasket(basketChecked);
     }
+
     if (globals.basketCounter.value == 0) {
       final snackBar = SnackBar(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

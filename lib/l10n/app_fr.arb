@@ -56,5 +56,8 @@
   "keepcopy": "Garder une copie dans mes favoris",
   "sendorderok": "Votre panier est envoyé",
   "thumbsize": "Taille des vignettes",
-  "offerrequest": "Demander une offre"
+  "offerrequest": "Demander une offre",
+  "confirmdeletetext": "Etes vous sûr de vouloir supprimer cet élément?",
+  "deleteok": "Elément supprimé",
+  "deletenok": "Erreur, l'élément n'est pas supprimé"
 }
