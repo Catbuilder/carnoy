@@ -970,8 +970,6 @@ class _FavoriteScreen extends State<FavoriteScreen> {
     setState(() {});
   }
 
-  void _confirm() {}
-
   @override
   Widget build(BuildContext context) {
     mapMenuSegment.putIfAbsent(

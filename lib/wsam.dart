@@ -511,6 +511,7 @@ Future<bool> delFavorite(context,basnum) async {
         onPressed: () {},
       ),
     );
+    scaffoldMessengerKey.currentState.showSnackBar(snackBar);
   }
 
   //
