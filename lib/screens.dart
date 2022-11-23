@@ -1149,6 +1149,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
       ItemPositionsListener.create();
   var _position;
   var _pdfIndex = 0;
+  var _pdfCount = 0;
 
   void _showPDF(context, replace) async {
     List<String> myUrl = [''];
@@ -1241,7 +1242,9 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
       _position = values.indexWhere((e) => e.artnumint == syncnum);
       if (_position == -1) _position = 0;
     }
-    _pdfIndex = values.indexWhere((element) => element.artpdf.length > 0);
+    values.forEach((v) { if(v.artpdf.length > 0) _pdfCount++;});
+    if(_pdfCount == 1) _pdfIndex = values.indexWhere((element) => element.artpdf.length > 0);
+
     //print('Position: $_position');
 
     return Scaffold(
@@ -1257,7 +1260,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                 overflow: TextOverflow.ellipsis,
                 softWrap: true,
               )),
-                  _pdfIndex == -1
+                  _pdfCount != 1
                       ? Container()
                       : IconButton(
                     icon: Icon(SimpleLineIcons.book_open,
@@ -1399,7 +1402,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                                               ? Colors.amberAccent
                                               : myTheme.canvasColor,
                                     )),
-                              /*values[index].artpdf.length > 0
+                              _pdfCount > 1 && values[index].artpdf.length > 0
                                   ? IconButton(
                                       icon: Icon(SimpleLineIcons.book_open,
                                           size: 20.0, color: Colors.grey),
@@ -1411,7 +1414,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                                       },
                                     )
                                   : Container(),
-                               */
+
                             ]),
                           ])),
                       SizedBox(
