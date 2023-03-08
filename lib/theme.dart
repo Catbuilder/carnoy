@@ -34,21 +34,17 @@ final ThemeData myTheme = ThemeData(
   primaryColorDark: Color( 0xff213f78 ),
   canvasColor: Color( 0xfffafafa ),
   scaffoldBackgroundColor: Color( 0xfffafafa ),
-  bottomAppBarColor: Color( 0xff21407a ),
+  bottomAppBarTheme: BottomAppBarTheme (color: Color(0xff21407a)),
   cardColor: Color( 0xffffffff ),
   dividerColor: Color( 0x1f000000 ),
   highlightColor: Color( 0x66bcbcbc ),
   splashColor: Color( 0x66c8c8c8 ),
-  selectedRowColor: Color( 0xfff5f5f5 ),
   unselectedWidgetColor: Color( 0x8a000000 ),
   disabledColor: Color( 0x61000000 ),
-  toggleableActiveColor: Color( 0xff2b54a1 ),
   secondaryHeaderColor: Color( 0xffebf0fa ),
-  backgroundColor: Color( 0xffafc3e9 ),
   dialogBackgroundColor: Color( 0xffffffff ),
   indicatorColor: Color( 0xff3669c9 ),
   hintColor: Color( 0x8a000000 ),
-  errorColor: Color( 0xffd32f2f ),
   buttonTheme: ButtonThemeData(
     textTheme: ButtonTextTheme.normal,
     minWidth: 88,
@@ -83,19 +79,19 @@ final ThemeData myTheme = ThemeData(
     ),
   ),
   textTheme: TextTheme(
-    caption: TextStyle(
+    bodySmall: TextStyle(
       color: Color( 0x8a000000 ),
       fontSize: null,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),
-    button: TextStyle(
+    labelLarge: TextStyle(
       color: Color( 0xdd000000 ),
       fontSize: null,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),
-    overline: TextStyle(
+    labelSmall: TextStyle(
       color: Color( 0xff000000 ),
       fontSize: null,
       fontWeight: FontWeight.w400,
@@ -103,19 +99,19 @@ final ThemeData myTheme = ThemeData(
     ),
   ),
   primaryTextTheme: TextTheme(
-    caption: TextStyle(
+    bodySmall: TextStyle(
       color: Color( 0xb3ffffff ),
       fontSize: null,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),
-    button: TextStyle(
+    labelLarge: TextStyle(
       color: Color( 0xffffffff ),
       fontSize: null,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),
-    overline: TextStyle(
+    labelSmall: TextStyle(
       color: Color( 0xffffffff ),
       fontSize: null,
       fontWeight: FontWeight.w400,

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:math';
 //import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -21,7 +21,7 @@ import 'dynaform.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:native_pdf_view/native_pdf_view.dart';
+import 'package:pdfx/pdfx.dart';
 import 'package:printing/printing.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -74,11 +74,11 @@ class _MainTabState extends State<MainTabState> with WidgetsBindingObserver {
   }
 
   Widget _shoppingCartBadge() {
-    return Badge(
+    return badges.Badge(
       badgeColor: globals.badgeColor,
-      position: BadgePosition.topEnd(top: -7, end: -12),
+      position: badges.BadgePosition.topEnd(top: -7, end: -12),
       animationDuration: Duration(milliseconds: 300),
-      animationType: BadgeAnimationType.slide,
+      animationType: badges.BadgeAnimationType.slide,
       showBadge: true,
       badgeContent: ValueListenableBuilder(
         valueListenable: globals.basketCounter,
@@ -91,11 +91,11 @@ class _MainTabState extends State<MainTabState> with WidgetsBindingObserver {
   }
 
   Widget _catalogBadge() {
-    return Badge(
+    return badges.Badge(
       badgeColor: globals.badgeColor,
-      position: BadgePosition.topEnd(top: -7, end: -12),
+      position: badges.BadgePosition.topEnd(top: -7, end: -12),
       animationDuration: Duration(milliseconds: 300),
-      animationType: BadgeAnimationType.slide,
+      animationType: badges.BadgeAnimationType.slide,
       showBadge: true,
       badgeContent: ValueListenableBuilder(
         valueListenable: globals.infoCounter,
@@ -954,8 +954,8 @@ class _FavoriteScreen extends State<FavoriteScreen> {
 //      width: 300,
       child: CupertinoSlidingSegmentedControl(
           groupValue: segmentedControlValue,
-          backgroundColor: Colors.transparent,
-          thumbColor: myTheme.toggleableActiveColor,
+          //backgroundColor: Colors.transparent,
+          thumbColor: myTheme.highlightColor,
           children: mapMenuSegment,
           onValueChanged: (value) {
             setState(() {
@@ -1386,7 +1386,7 @@ class _FavoriteDetailScreen extends State<FavoriteDetailScreen> {
                                     }
                                   },
                                   style: ElevatedButton.styleFrom(
-                                      primary: myTheme.toggleButtonsTheme.color,
+                                      backgroundColor: myTheme.toggleButtonsTheme.color,
                                       visualDensity: VisualDensity.compact,
                                       textStyle: TextStyle(fontSize: 12.0)),
                                   child: Text(
@@ -1734,13 +1734,13 @@ class _TreeScreen extends State<TreeScreen> {
                                       Navigator.of(context).push(route);
                                     },
                                   )
-                                : Badge(
+                                : badges.Badge(
                                     badgeColor: globals.badgeColor,
                                     position:
-                                        BadgePosition.topEnd(top: -2, end: -3),
+                                    badges.BadgePosition.topEnd(top: -2, end: -3),
                                     animationDuration:
                                         Duration(milliseconds: 300),
-                                    animationType: BadgeAnimationType.slide,
+                                    animationType: badges.BadgeAnimationType.slide,
                                     badgeContent: ValueListenableBuilder(
                                       valueListenable: globals.infoCounter,
                                       builder: (BuildContext context, int value,
@@ -2227,7 +2227,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                           }
                                         },
                                         style: ElevatedButton.styleFrom(
-                                            primary: myTheme
+                                            backgroundColor: myTheme
                                                 .toggleButtonsTheme.color,
                                             visualDensity:
                                                 VisualDensity.compact,
@@ -2696,7 +2696,7 @@ class _BasketScreen extends State<BasketScreen> {
                                         }
                                       },
                                       style: ElevatedButton.styleFrom(
-                                          primary:
+                                          backgroundColor:
                                               myTheme.toggleButtonsTheme.color,
                                           visualDensity: VisualDensity.compact,
                                           textStyle: TextStyle(
@@ -3600,7 +3600,7 @@ class _SearchScreen extends State<SearchScreen>
       appBar: AppBar(
         titleSpacing: 0,
         flexibleSpace: CupertinoNavigationBar(
-          backgroundColor: myTheme.bottomAppBarColor,
+          backgroundColor: myTheme.bottomAppBarTheme.color,
           middle: Listener(
             onPointerDown: (_) {
               if (!_searchFocusNode.hasFocus) _searchFocusNode.requestFocus();
@@ -3705,7 +3705,7 @@ class _ParameterScreen extends State<ParameterScreen> {
       child: CupertinoSlidingSegmentedControl(
           groupValue: segmentedLanguageValue,
 //          backgroundColor: myTheme.buttonColor,
-          thumbColor: myTheme.toggleableActiveColor,
+          thumbColor: myTheme.highlightColor,
           children: mapLanguageSegment,
           onValueChanged: (value) {
             setState(() {
@@ -3722,7 +3722,7 @@ class _ParameterScreen extends State<ParameterScreen> {
       child: CupertinoSlidingSegmentedControl(
           groupValue: segmentedDataTextValue,
 //          backgroundColor: myTheme.buttonColor,
-          thumbColor: myTheme.toggleableActiveColor,
+          thumbColor: myTheme.highlightColor,
           children: mapDataTextSegment,
           onValueChanged: (value) {
             setState(() {
@@ -3731,7 +3731,7 @@ class _ParameterScreen extends State<ParameterScreen> {
 
               _themeProvider.setTheme(myTheme.copyWith(
                   textTheme: myTheme.textTheme.copyWith(
-                      subtitle1: myTheme.textTheme.subtitle1.copyWith(
+                      titleMedium: myTheme.textTheme.titleMedium.copyWith(
                 fontSize: value * 1.0,
               ))));
             });
@@ -3752,7 +3752,7 @@ class _ParameterScreen extends State<ParameterScreen> {
               approThumbSizeRatio = selectedValue;
               _themeProvider.setTheme(myTheme.copyWith(
                   textTheme: myTheme.textTheme.copyWith(
-                      subtitle1: myTheme.textTheme.subtitle1.copyWith(
+                      titleMedium: myTheme.textTheme.titleMedium.copyWith(
                 fontSize: approDataTextSize * 1.0,
               ))));
             });
@@ -3881,7 +3881,7 @@ class GeneralDrawer extends StatelessWidget {
                 ]),
             margin: EdgeInsets.only(top: 0.0, bottom: 0.0),
             decoration: BoxDecoration(
-              color: myTheme.bottomAppBarColor,
+              color: myTheme.bottomAppBarTheme.color,
             ),
           )),
       Expanded(
@@ -4101,7 +4101,7 @@ class _TouchSpinState2 extends State<TouchSpin2> {
                       ? widget.iconDisabledColor ??
                           Theme.of(context).disabledColor
                       : widget.iconActiveColor ??
-                          Theme.of(context).textTheme.button.color,
+                          Theme.of(context).textTheme.labelLarge.color,
                   icon: widget.subtractIcon,
                   onPressed: minusBtnDisabled
                       ? null
@@ -4149,7 +4149,7 @@ class _TouchSpinState2 extends State<TouchSpin2> {
                       ? widget.iconDisabledColor ??
                           Theme.of(context).disabledColor
                       : widget.iconActiveColor ??
-                          Theme.of(context).textTheme.button.color,
+                          Theme.of(context).textTheme.labelLarge.color,
                   icon: widget.addIcon,
                   onPressed: addBtnDisabled
                       ? null
@@ -4590,7 +4590,7 @@ class _OrderUnitWidgetState extends State<OrderUnitWidget> {
         elevation: 1,
         pressElevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        selectedColor: myTheme.toggleableActiveColor,
+        selectedColor: myTheme.highlightColor,
         onSelected: (bool selected) {
           setState(() {
             int _idx =
