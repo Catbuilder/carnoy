@@ -407,7 +407,7 @@ class ReactiveDateRenderer2 extends FormElementRenderer<cp.Date> {
       builder: (BuildContext context, _) {
         final format = DateFormat(element.format);
         var value = element.value;
-        print('first date ' + element.label.toString());
+        //print('first date ' + element.label.toString());
         final DateTime time = value != null ? value : element.initialDate;
 
         return Center(
